@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>MVP 3 Lab</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+		rel="stylesheet">
+	<style>
+		body {
+			margin: 0;
+		}
+
+		#lockButton {
+			background-color: #1d4f77;
+			/* Dark blue background */
+			color: white;
+			/* White text color */
+			border: none;
+			/* Remove default border */
+			border-radius: 25px;
+			/* Rounded corners */
+			padding: 10px 20px;
+			/* Padding for size */
+			font-size: 16px;
+			/* Font size */
+			cursor: pointer;
+			/* Pointer cursor on hover */
+			text-align: center;
+			/* Centered text */
+			display: inline-block;
+			/* Inline-block for margins */
+			font-family: 'Roboto', sans-serif;
+			/* Font family */
+			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+			/* Optional: add a subtle shadow */
+			transition: background-color 0.3s ease;
+			/* Smooth transition for background color change */
+			position: absolute;
+			top: 10%;
+			right: 2%;
+			z-index: 1001;
+			display: none
+		}
+
+		#submitConnections {
+			display: none;
+			background-color: #1d4f77;
+			/* Dark blue background */
+			color: white;
+			/* White text color */
+			border: none;
+			/* Remove default border */
+			border-radius: 25px;
+			/* Rounded corners */
+			padding: 10px 20px;
+			/* Padding for size */
+			font-size: 16px;
+			/* Font size */
+			cursor: pointer;
+			/* Pointer cursor on hover */
+			text-align: center;
+			/* Centered text */
+			display: inline-block;
+			/* Inline-block for margins */
+			font-family: 'Roboto', sans-serif;
+			/* Font family */
+			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+			/* Optional: add a subtle shadow */
+			transition: background-color 0.3s ease;
+			/* Smooth transition for background color change */
+			position: absolute;
+			top: 10%;
+			right: 2%;
+			z-index: 1001;
+		}
+
+		#erase {
+			background-color: #1d4f77;
+			/* Dark blue background */
+			color: white;
+			/* White text color */
+			border: none;
+			/* Remove default border */
+			border-radius: 25px;
+			/* Rounded corners */
+			padding: 10px 20px;
+			/* Padding for size */
+			font-size: 16px;
+			/* Font size */
+			cursor: pointer;
+			/* Pointer cursor on hover */
+			text-align: center;
+			/* Centered text */
+			display: inline-block;
+			/* Inline-block for margins */
+			font-family: 'Roboto', sans-serif;
+			/* Font family */
+			box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+			/* Optional: add a subtle shadow */
+			transition: background-color 0.3s ease;
+			/* Smooth transition for background color change */
+			position: absolute;
+			top: 10%;
+			right: 15%;
+			z-index: 1001;
+			display: none
+		}
+	</style>
+  <script type="module" crossorigin src="/assets/index-DRryjdyF.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-Dw0lKYz_.css">
+</head>
+
+<body>
+	<button id="lockButton">Finalize Positions</button>
+	<button id="submitConnections">Submit</button>
+	<button id="erase"> Erase</button>
+	<div id="overlay"></div>
+	<div id="labIntro">
+		<h1 class="roboto-bold introTitle">Welcome to the lab simulation</h1>
+		<p class="introContent roboto-regular">In this section, you’ll test your hypothesis by doing the experiment
+			yourself.
+			Here’s how the lab works:</p>
+
+		<div class="progress-container">
+			<div class="progress-step">
+				<div class="progress-circle">
+					<img src="/images/battery.png" alt="Battery Icon" style="width: 30px; height: 30px;">
+				</div>
+				<div class="progress-text roboto-light">Learn the equipment</div>
+			</div>
+			<div class="progress-line"></div>
+			<div class="progress-step">
+				<div class="progress-circle">
+					<img src="/images/circuit.png" alt="Setup Icon" style="width: 30px; height: 30px;">
+				</div>
+				<div class="progress-text roboto-light">Set up the equipment</div>
+			</div>
+			<div class="progress-line"></div>
+			<div class="progress-step">
+				<div class="progress-circle">
+					<img src="/images/procedure.png" alt="Procedures Icon" style="width: 30px; height: 30px;">
+				</div>
+				<div class="progress-text roboto-light">Learn the procedures</div>
+			</div>
+			<div class="progress-line"></div>
+			<div class="progress-step">
+				<div class="progress-circle">
+					<img src="/images/secondLast.png" alt="Experiment Icon" style="width: 30px; height: 30px;">
+				</div>
+				<div class="progress-text roboto-light">Experiment</div>
+			</div>
+			<div class="progress-line"></div>
+			<div class="progress-step">
+				<div class="progress-circle">
+					<img src="/images/chat.png" alt="Record Icon" style="width: 30px; height: 30px;">
+				</div>
+				<div class="progress-text roboto-light">Record observations</div>
+			</div>
+		</div>
+
+
+		<div class="next" id="next">
+			<img src="/images/arrow.png" alt="">
+		</div>
+	</div>
+
+	<div class="circuitDiagramText" id="circuit">
+		<h3 class="roboto-bold circuitText">Before building your own lab, check out the circuit diagram.</h3>
+	</div>
+	<div class="toolBox" id="toolBox">
+		<div class="grid-container">
+			<div class="grid-item info">
+				<img src="/images/info.svg" alt="Info Icon">
+				<p class="roboto-regular">Info</p>
+			</div>
+			<div class="grid-item circuitDiagramIcon">
+				<img src="/images/circuit.svg" alt="Circuit Diagram Icon">
+				<p class="roboto-regular">Circuit Diagram</p>
+			</div>
+			<div class="grid-item stepsIcon">
+				<img src="/images/steps.svg" alt="Steps Icon">
+				<p class="roboto-regular">Steps</p>
+			</div>
+			<div class="grid-item observations">
+				<img src="/images/table.svg" alt="Observation Table Icon">
+				<p class="roboto-regular">Observation Table</p>
+			</div>
+		</div>
+	</div>
+	<div class="highlight" id="highlight">
+		<img src="/images/upArrow.png" alt="">
+	</div>
+	<div class="circuitDiagramModal" id="circuitDiagramModal">
+		<button class="close-button" id="closeButton">&times;</button>
+		<h3>Circuit Diagram</h3>
+		<img src="/images/diagram.png" alt="">
+	</div>
+
+	<div class="fixPositionIntro" id="fixPositionIntro">
+		<h3>Now let’s arrange all the equipment. You can move them freely. <br><br>
+
+			Once done, tap on the “Finalize Position” button on the top right corner.</h3>
+		<div class="next nextButtonDiv  next-button-fix">
+			<button class="next-button" id="next-button-fix">Next</button>
+		</div>
+
+	</div>
+
+	<div class="connectWiresDiv" id="connectWiresDiv">
+		<h3>Now you’ve placed all equipment, let’s connect them by tapping one blue dot (the first terminal) and another blue dot(the second terminal).</h3>
+		<div class="newNextButtonDiv" id="connectWiresDiv1">
+			<button class="next-button" id="next-button-fix">Next</button>
+		</div>
+	</div>
+
+	<div class="wireFeedbackDiv" id="wireFeedbackDiv">
+
+	</div>
+	<div class="hintBox" id="hintBox">
+
+	</div>
+	<div class="procedureBox" id="procedureBox">
+
+	</div>
+
+	<div class="steps" id="steps">
+
+
+	</div>
+
+	<div class="obTableIntro" id="obTableIntro">
+		<h3>Next, follow the experiment procedures, and fill in your findings in the observation table here.</h3>
+	</div>
+
+	<div class="modal-overlay" id="modal-overlay">
+		<div class="tableContainer" id="observationTable">
+			<div class="tableHeader">
+				<h3>Observation Table</h3>
+				<div class="buttons">
+					<button class="submitButton" id="submitObservations">Submit</button>
+					<button class="closeButton" id="closeButtonOB">
+						<img src="/images/Vector.svg" alt="Close Icon">
+					</button>
+				</div>
+
+
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th rowspan="2">No.</th>
+						<th colspan="1">High Resistance</th>
+						<th colspan="1">Deflection in the Galvanometer</th>
+						<th colspan="1">Shunt Resistance</th>
+						<th colspan="1">Half-deflection in the Galvanometer</th>
+						<th colspan="1">Galvanometer Resistance</th>
+						<th colspan="1">Figure of Merit</th>
+					</tr>
+					<tr class="sub-header">
+						<th>R (Ω)</th>
+						<th>θ (divisions)</th>
+						<th>S (Ω)</th>
+						<th>θ/2 (divisions)</th>
+						<th>G = RS/(R-S)</th>
+						<th>k = E/((R+G)θ)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Example rows, add more as needed -->
+					<tr>
+						<td>1</td>
+						<td><input type="text" id="input_1_1"></td>
+						<td><input type="text" id="input_1_2"></td>
+						<td><input type="text" id="input_1_3"></td>
+						<td><input type="text" id="input_1_4"></td>
+						<td><input type="text" id="input_1_5"></td>
+						<td><input type="text" id="input_1_6"></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><input type="text" id="input_2_1"></td>
+						<td><input type="text" id="input_2_2"></td>
+						<td><input type="text" id="input_2_3"></td>
+						<td><input type="text" id="input_2_4"></td>
+						<td><input type="text" id="input_2_5"></td>
+						<td><input type="text" id="input_2_6"></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><input type="text" id="input_3_1"></td>
+						<td><input type="text" id="input_3_2"></td>
+						<td><input type="text" id="input_3_3"></td>
+						<td><input type="text" id="input_3_4"></td>
+						<td><input type="text" id="input_3_5"></td>
+						<td><input type="text" id="input_3_6"></td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td><input type="text" id="input_4_1"></td>
+						<td><input type="text" id="input_4_2"></td>
+						<td><input type="text" id="input_4_3"></td>
+						<td><input type="text" id="input_4_4"></td>
+						<td><input type="text" id="input_4_5"></td>
+						<td><input type="text" id="input_4_6"></td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td><input type="text" id="input_5_1"></td>
+						<td><input type="text" id="input_5_2"></td>
+						<td><input type="text" id="input_5_3"></td>
+						<td><input type="text" id="input_5_4"></td>
+						<td><input type="text" id="input_5_5"></td>
+						<td><input type="text" id="input_5_6"></td>
+					</tr>
+					<!-- Add more rows as needed -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="beginScreen" id="beginScreen">
+
+		<h3>Let's begin the experiment!</h3>
+		<div class="nextButtonDiv takeReadings">
+			<button class="next-button">Next</button>
+		</div>
+	</div>
+
+	<div class="modal-overlay-hrb" id="modal-overlay-hrb">
+		<div class="hRBModal">
+			<div class="tableHeader tableHeaderHRB">
+				<h3 class="roboto-bold headerTitle">High Resistance Box</h3>
+				<button class="closeButton" id="closeButtonHRB">
+					<img src="/images/Vector.svg" alt="Close Icon">
+				</button>
+			</div>
+			<div class="tableHeader tableHeaderHRB">
+				<h3 class="deflection">Deflection: <span id="deflectionValue">0</span></h3>
+				<div class="buttons">
+					<button class="submitButton" id="submitHRBResistance">Submit</button>
+
+				</div>
+			</div>
+			<div class="checkbox-grid-HRB">
+				<div class="checkbox-item"><input type="checkbox" id="checkbox1" value="1"><label
+						for="checkbox1">1</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox2" value="2"><label
+						for="checkbox2">2</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox3" value="2"><label
+						for="checkbox3">2</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox4" value="5"><label
+						for="checkbox4">5</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox5" value="10"><label
+						for="checkbox5">10</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox6" value="20"><label
+						for="checkbox6">20</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox7" value="20"><label
+						for="checkbox7">20</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox8" value="50"><label
+						for="checkbox8">50</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox9" value="100"><label
+						for="checkbox9">100</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox10" value="200"><label
+						for="checkbox10">200</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox11" value="200"><label
+						for="checkbox11">200</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox12" value="500"><label
+						for="checkbox12">500</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox13" value="1000"><label
+						for="checkbox13">1000</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox14" value="2000"><label
+						for="checkbox14">2000</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox15" value="2000"><label
+						for="checkbox15">2000</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox16" value="5000"><label
+						for="checkbox16">5000</label></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal-overlay-lrb" id="modal-overlay-lrb">
+		<div class="lRBModal">
+			<div class="tableHeader tableHeaderHRB">
+				<h3 class="roboto-bold headerTitle">Low Resistance Box</h3>
+				<button class="closeButton" id="closeButtonLRB">
+					<img src="/images/Vector.svg" alt="Close Icon">
+				</button>
+			</div>
+			<div class="tableHeader tableHeaderHRB">
+				<h3 class="deflection">Deflection: <span id="deflectionValueLRB">0</span></h3>
+				<div class="buttons">
+					<button class="submitButton" id="submitLRBResistance">Submit</button>
+
+				</div>
+			</div>
+			<div class="checkbox-grid-LRB">
+				<div class="checkbox-item"><input type="checkbox" id="checkbox1" value="1"><label
+						for="checkbox1">1</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox2" value="2"><label
+						for="checkbox2">2</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox3" value="2"><label
+						for="checkbox3">2</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox4" value="5"><label
+						for="checkbox4">5</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox5" value="10"><label
+						for="checkbox5">10</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox6" value="20"><label
+						for="checkbox6">20</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox7" value="20"><label
+						for="checkbox7">20</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox8" value="50"><label
+						for="checkbox8">50</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox9" value="100"><label
+						for="checkbox9">100</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox10" value="200"><label
+						for="checkbox10">200</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox11" value="200"><label
+						for="checkbox11">200</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox12" value="500"><label
+						for="checkbox12">500</label></div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal-overlay-key" id="modal-overlay-key">
+	</div>
+
+	<div class="congratsScreen" id="congratsScreen">
+		<h3 class="roboto-bold">
+			Congratulations! You did the experiment
+		</h3>
+		<div class="congratsImage">
+			<img src="/images/Confetti.svg" alt="">
+		</div>
+		<div class="congratsNext">
+			<button class="next-button" id="congratsNext">Next</button>
+		</div>
+
+	</div>
+
+	<div class="redirect" id="redirect">
+		<div class="redirectImage">
+			<img src="/images/rotate.svg" alt="">
+		</div>
+		<h3 class="roboto-bold">
+			Let's summarize our learnings.
+			Please rotate your phone to portrait mode for the next section.
+		</h3>
+		<div class="redirectNext">
+			<button class="next-button" id="redirectNext">Next</button>
+		</div>
+	</div>
+
+	<div class="modal-overlay-info" id="modal-overlay-info">
+		<div class="information">
+			<div class="tableHeader tableHeaderHRB">
+				<h3 class="roboto-bold headerTitle">Lab Information</h3>
+				<button class="closeButton closeInfo" id="closeInfo">
+					<img src="/images/Vector.svg" alt="Close Icon">
+				</button>
+			</div>
+			<p class="roboto-regular">
+				1. Place all lab equipment in the desired positions.
+			</p>
+			<p class="roboto-regular">
+				2. Finalize the positions of the equipment.
+			</p>
+			<p class="roboto-regular">
+				3. Connect the wires by dragging from one blue dot to another.
+			</p>
+			<p class="roboto-regular">
+				4. Submit the wire connections.
+			</p>
+			<p class="roboto-regular">
+				5. Close the keys and adjust the resistance values.
+			</p>
+			<p class="roboto-regular">
+				6. Enter the readings into the observation table.
+			</p>
+		</div>
+
+	</div>
+
+	<div id="circleContainer"></div>
+
+
+
+
+
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src="https://threejs.org/examples/js/controls/DragControls.js"></script>
+
+</body>
+
+</html>
