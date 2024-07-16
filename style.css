@@ -1,0 +1,1045 @@
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+#labIntro {
+    height: 80%;
+    width: 100% !important;
+    background-color: white;
+    position: absolute;
+    bottom: 0px;
+    border-top-left-radius: 40px;
+    /* Top-left corner */
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    /* display: none; */
+    overflow-y: auto;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent black */
+    display: none;
+    z-index: 1000;
+    /* Hidden by default */
+}
+
+.introTitle {
+    color: #004A76;
+    font-size: 30px;
+    margin: 40px;
+}
+
+.introContent {
+    margin: 40px;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    width: 100px;
+}
+
+.progress-circle {
+    background-color: #87CEFA;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-line {
+    width: 100px;
+    height: 2px;
+    background-color: #87CEFA;
+    margin: 0 10px;
+}
+
+.progress-text {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.labIntro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.next {
+    position: absolute;
+    top: 30%;
+    right: 0%;
+}
+
+.content {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.equipment-container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 20px;
+    /* background-color: #e0f7fa; */
+    border-radius: 10px;
+    margin: 20px 0;
+    margin-bottom: 0px;
+}
+
+.equipment-container img {
+    width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.equipment-text {
+    text-align: left;
+}
+
+.equipment-text h2 {
+    margin: 20px 0 10px 0;
+}
+
+.arrow-left,
+.arrow-right {
+    cursor: pointer;
+    font-size: 24px;
+    padding: 0 10px;
+}
+
+.arrow-left {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow-right {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tutorialTitle {
+    margin-bottom: 5px;
+}
+
+.tutorialImage {
+    width: 300px;
+    height: 220px;
+    background-color: #87CEFA;
+    margin-bottom: 10px;
+    margin-left: 40px;
+    margin-right: 30px;
+    border-radius: 40px;
+}
+
+.tutorialName {
+    color: #004A76;
+    font-size: 20px;
+    margin: 40px;
+    text-decoration: underline;
+}
+
+.right-arrow img {
+    width: 50px;
+    height: 50px
+}
+
+.left-arrow img {
+    width: 50px;
+    height: 50px;
+}
+
+.left-arrow {
+    position: absolute;
+    top: 30%;
+    left: 0;
+}
+
+.next-button {
+    background-color: #1d4f77;
+    /* Dark blue background */
+    color: white;
+    /* White text color */
+    border: none;
+    /* Remove default border */
+    border-radius: 25px;
+    /* Rounded corners */
+    padding: 10px 20px;
+    /* Padding for size */
+    font-size: 16px;
+    /* Font size */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    text-align: center;
+    /* Centered text */
+    display: inline-block;
+    /* Inline-block for margins */
+    font-family: 'Roboto', sans-serif;
+    /* Font family */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional: add a subtle shadow */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color change */
+
+}
+
+.nextButtonDiv {
+    /* width: 30px;
+    height: 30px; */
+    justify-content: right;
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    width: 98%;
+}
+
+.next-button-fix {
+    justify-content: right;
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    height: 50px;
+}
+
+.circuitDiagramText {
+    height: 40%;
+    width: 100%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    position: absolute;
+    bottom: 0;
+    z-index: 1001;
+    display: none;
+    background-color: white;
+    color: #004A76;
+}
+
+.circuitText {
+    margin: 40px;
+}
+
+.toolBox {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100px;
+    background-color: #004A76;
+    display: none;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    left: 25%;
+    z-index: 1001;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Four equal columns */
+    gap: 5px;
+    /* Gap between grid items */
+    padding: 15px 15px 15px 5px;
+    /* padding-top: 0px; */
+    /* background-color: #1d4f77; */
+    /* Matching background color */
+    /* border-radius: 20px; */
+    /* Rounded corners */
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #274b6d; */
+    /* Slightly lighter background for items */
+    padding: 0px;
+    /* border-radius: 10px; */
+    text-align: center;
+    color: #b0c4de;
+    /* Light blue text color */
+}
+
+.grid-item img {
+    /* width: 50%;
+    height: 50%; */
+    margin-bottom: 10px;
+}
+
+.grid-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.circuitDiagramIcon img {
+    /* width: 60%;
+    height: 60%; */
+    padding-top: 3px;
+    padding-bottom: 1px;
+    margin-bottom: 0px !important;
+}
+
+.obTable img {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.highlight {
+    display: none;
+    position: absolute;
+    top: 101px;
+    left: 42.5%;
+    z-index: 1001;
+}
+
+.highlight img {
+    height: 40px;
+    width: 30px;
+}
+
+.circuitDiagramModal {
+    height: 50%;
+    width: 40%;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    display: None;
+    background-color: white;
+    color: #004A76;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.circuitDiagramModal img {
+    height: 70%;
+    width: 70%;
+}
+
+.newNextButtonDiv {
+    display: flex;
+    justify-content: right;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: red;
+    /* Change color on hover */
+}
+
+.fixPositionIntro {
+    display: None;
+    background-color: #ffffff;
+    color: #004A76;
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.fixPositionIntro h3 {
+    margin: 40px;
+}
+
+.connectWiresDiv {
+    display: None;
+    background-color: #ffffff;
+    color: #004A76;
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.connectWiresDiv h3 {
+    margin: 40px;
+}
+
+.wireFeedbackDiv {
+    display: None;
+    background-color: #ffffff;
+    color: #004A76;
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.wireFeedbackDiv h3 {
+    margin: 40px;
+}
+
+.hint-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #004A76;
+    /* Button background color */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove default border */
+    border-radius: 50px;
+    /* Rounded corners */
+    padding: 10px 20px;
+    /* Padding around the button */
+    font-size: 18px;
+    /* Font size */
+    font-family: 'Arial', sans-serif;
+    /* Font family */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    box-shadow: 0 0 0 2px #004A76;
+    /* Outer border */
+    outline: none;
+    /* Remove outline on focus */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color change */
+}
+
+.hint-button img {
+    width: 24px;
+    /* Icon width */
+    height: 24px;
+    /* Icon height */
+    margin-right: 10px;
+    /* Space between icon and text */
+}
+
+.hint-button:hover {
+    background-color: #357ae8;
+    /* Darker blue on hover */
+}
+
+.hintBox {
+    display: None;
+    background-color: #ffffff;
+    color: #004A76;
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.hintBox h3 {
+    margin: 40px
+}
+
+.arrow-button {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 2px;
+}
+
+.hint-container {
+    margin-bottom: 20px;
+}
+
+.hint-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hint-navigation img {
+    width: 24px;
+    height: 24px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.iGotIt {
+    margin-right: 20px;
+}
+
+.hintCounterText {
+    margin: 5px !important;
+}
+
+.procedureBox {
+    display: None;
+    background-color: #F7FCFF;
+    color: #004A76;
+    height: 35%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.procedureBox h3 {
+    margin: 40px;
+}
+
+.steps {
+    display: None;
+    background-color: #F7FCFF;
+    color: #004A76;
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001
+}
+
+.steps h3 {
+    margin: 20px 40px 20px 40px !important;
+}
+
+.scrollableSteps {
+    width: 100%;
+    height: 80%;
+    width: 80%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+.scrollableSteps h4 {
+    width: 100%;
+    text-align: left;
+    margin: 10px 0;
+}
+
+.header {
+    width: 100%;
+    text-align: left;
+    margin: 40px 40px 20px 40px;
+    padding-left: 40px;
+}
+
+.close-button-container {
+    justify-content: right;
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    width: 98%;
+}
+
+.close-button-steps {
+    background-color: #004A76;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.obTableIntro {
+    display: None;
+    background-color: #F7FCFF;
+    color: #004A76;
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.obTableIntro h3 {
+    margin: 40px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.tableContainer {
+    width: 90%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    z-index: 1001;
+    overflow: auto;
+    height: 60%;
+    top: 70px;
+    margin-bottom: 50px;
+}
+
+.tableHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tableHeader h3 {
+    margin: 0;
+}
+
+.tableHeader .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.tableHeader .buttons button {
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.tableHeader .buttons button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.tableHeader .closeButton {
+    background-color: transparent !important;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.tableHeader .closeButton img {
+    width: 24px;
+    height: 24px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #4285F4;
+    color: white;
+}
+
+.sub-header {
+    background-color: #e0f7fa;
+    color: #000;
+}
+
+input {
+    width: 100%;
+    border: none;
+    text-align: center;
+    background: transparent;
+    outline: none;
+}
+
+.beginScreen {
+    display: None;
+    background-color: #F7FCFF;
+    color: #004A76;
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    overflow-y: auto;
+}
+
+.beginScreen h3 {
+    margin: 40px;
+}
+
+.modal-overlay-hrb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hRBModal {
+    width: 50%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    top: 25%;
+    margin: auto;
+    height: 60%;
+    z-index: 1001;
+    overflow-y: auto;
+
+}
+
+.hRBModal h3 {
+    margin: 40px;
+    color: #004A76;
+}
+
+.checkbox-grid-HRB {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    width: 200px;
+    /* Adjust as needed */
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.checkbox-grid-LRB {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    width: 200px;
+    /* Adjust as needed */
+    margin: 0 auto;
+    justify-content: center;
+}
+
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.tableHeaderHRB {
+    margin-bottom: 0px !important;
+}
+
+.headerTitle {
+    margin: 40px 40px 10px 40px !important;
+}
+
+.deflection {
+    margin: 10px 40px 20px 40px !important;
+}
+
+.modal-overlay-key {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.keyStatus {
+    width: 20%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    top: 25%;
+    margin: auto;
+    height: 25%;
+    z-index: 1001;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.continueButtonKey {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #004A76;
+    /* Button background color */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove default border */
+    border-radius: 50px;
+    /* Rounded corners */
+    padding: 10px 20px;
+    /* Padding around the button */
+    font-size: 18px;
+    /* Font size */
+    font-family: 'Arial', sans-serif;
+    /* Font family */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    box-shadow: 0 0 0 2px #004A76;
+    /* Outer border */
+    outline: none;
+    /* Remove outline on focus */
+    transition: background-color 0.3s ease;
+    margin: auto;
+}
+
+.modal-overlay-lrb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lRBModal {
+    width: 50%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    top: 25%;
+    margin: auto;
+    height: 60%;
+    z-index: 1001;
+    overflow-y: auto;
+
+}
+
+.lRBModal h3 {
+    margin: 40px;
+    color: #004A76;
+}
+
+.congratsScreen {
+    display: None;
+    background-color: #F7FCFF;
+    color: #004A76;
+    height: 60%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    overflow: auto;
+    /* justify-content: center; */
+}
+
+.congratsScreen h3 {
+    margin: 40px;
+    text-align: center;
+}
+
+.congratsScreen img {
+    width: 10%;
+    height: 10%;
+
+}
+
+.congratsImage {
+    display: flex;
+    justify-content: center;
+}
+
+.congratsNext {
+    display: flex;
+    justify-content: right;
+}
+
+.congratsNext button {
+    margin-right: 20px;
+}
+
+.redirect {
+    display: None;
+    background-color: #F7FCFF;
+    color: #004A76;
+    height: 60%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    z-index: 1001;
+    overflow: auto;
+}
+
+.redirect h3 {
+    margin: 40px;
+    text-align: center;
+}
+
+.redirectImage {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.redirectNext {
+    display: flex;
+    justify-content: right;
+}
+
+.redirectNext button {
+    margin-right: 20px;
+}
+
+.modal-overlay-info {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.information {
+    width: 40%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    z-index: 1001;
+    overflow: auto;
+    height: 40%;
+    text-align: left;
+    margin: auto;
+    top: 120px;
+}
+
+.information h3 {
+    margin: 40px;
+}
+
+.information p {
+    margin: 40px
+}
+
+#circleContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    /* Allow clicks to pass through */
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    /* Center the circle on the position */
+}
