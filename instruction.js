@@ -1,4 +1,4 @@
-import { Connect } from "twilio/lib/twiml/VoiceResponse";
+// import { Connect } from "twilio/lib/twiml/VoiceResponse";
 var tutorial = true
 var skipTutorial = false
 import { key1Open, key2Open } from './main.js';
@@ -882,3 +882,4 @@ document.getElementById('congratsNext').addEventListener('click', function () {
     redirect.style.display = "block"
     document.getElementById('overlay').style.display = "block"
 })
+

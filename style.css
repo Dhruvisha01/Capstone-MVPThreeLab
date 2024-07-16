@@ -1043,3 +1043,8 @@ input {
     transform: translate(-50%, -50%);
     /* Center the circle on the position */
 }
+
+.redirectNext a {
+    text-decoration: none;
+    color: white;
+}

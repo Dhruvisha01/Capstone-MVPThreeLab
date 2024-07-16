@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DragControls } from 'three/examples/jsm/controls/DragControls.js';
-import { floor } from 'three/examples/jsm/nodes/Nodes.js';
+// import { floor } from 'three/examples/jsm/nodes/Nodes.js';
 import { correctConnections } from './instruction.js';
 import { invalidConnectionFunction } from './instruction.js';
 import { enableThreeJSInteraction } from './instruction.js';
