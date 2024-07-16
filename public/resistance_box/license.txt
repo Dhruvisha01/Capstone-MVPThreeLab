@@ -1,0 +1,11 @@
+Model Information:
+* title:	Resistance Box
+* source:	https://sketchfab.com/3d-models/resistance-box-ee47e014039f476fb88cc8798584e8dc
+* author:	VeeRuby Technologies Pvt Ltd (https://sketchfab.com/veerubyinc)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Resistance Box" (https://sketchfab.com/3d-models/resistance-box-ee47e014039f476fb88cc8798584e8dc) by VeeRuby Technologies Pvt Ltd (https://sketchfab.com/veerubyinc) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
