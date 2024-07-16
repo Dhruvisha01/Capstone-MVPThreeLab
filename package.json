@@ -1,0 +1,27 @@
+{
+  "name": "capstone-mvpthreelab",
+  "version": "1.0.0",
+  "description": "MVP3 lab part",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhruvisha01/Capstone-MVPThreeLab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dhruvisha01/Capstone-MVPThreeLab/issues"
+  },
+  "homepage": "https://github.com/Dhruvisha01/Capstone-MVPThreeLab#readme",
+  "dependencies": {
+    "three": "^0.165.0"
+  },
+  "devDependencies": {
+    "vite": "^5.3.1"
+  }
+}
