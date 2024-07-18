@@ -753,7 +753,7 @@ eraseButton.addEventListener('click', () => {
     }
     else {
         eraseButton.style.color = "White"
-        eraseButton.style.backgroundColor = "#1d4f77"
+        eraseButton.style.backgroundColor = "transparent"
     }
 
 

@@ -224,10 +224,10 @@ function HighRBIntro() {
                 <img src="/images/high.png" alt="Galvanometer">
             </div>
             <div class="equipment-text">
-                <h2 class = "tutorialName roboto-bold">High Resistance Box</h2>
-                <p class = "roboto-regular">A high resistance box limits the current flowing through the circuit and helps achieve the desired deflection of the galvanometer using the half deflection method. 
+                <h2 class = "tutorialName roboto-bold" style = "font-size: 14px">High Resistance Box</h2>
+                <p class = "roboto-regular" style = "font-size: 12.5px">A high resistance box limits the current flowing through the circuit and helps achieve the desired deflection of the galvanometer using the half deflection method. 
                 </p>
-                <p class = "roboto-regular">Adjust the resistance by tapping the high resistance box and selecting the values to control the current and deflection.
+                <p class = "roboto-regular" style = "font-size: 12.5px">Adjust the resistance by tapping the high resistance box and selecting the values to control the current and deflection.
                 </p>
             </div>
             <div class="next right-arrow nextShuntRB">
@@ -249,11 +249,11 @@ function ShuntRBIntro() {
                 <img src="/images/shunt.png" alt="Galvanometer">
             </div>
             <div class="equipment-text">
-                <h2 class = "tutorialName roboto-bold">Shunt Resistance Box</h2>
-                <p class = "roboto-regular">A shunt resistance box diverts current away from the galvanometer and helps achieve the desired deflection using the half deflection method.
+                <h2 class = "tutorialName roboto-bold" style = "font-size: 14px">Shunt Resistance Box</h2>
+                <p class = "roboto-regular" style = "font-size: 13.5px">A shunt resistance box diverts current away from the galvanometer and helps achieve the desired deflection using the half deflection method.
 
                 </p>
-                <p class = "roboto-regular">Adjust the resistance by tapping the shunt resistance box and selecting the values to control the current and deflection.
+                <p class = "roboto-regular" style = "font-size: 13.5px">Adjust the resistance by tapping the shunt resistance box and selecting the values to control the current and deflection.
                 </p>
             </div>
             <div class="next right-arrow nextKey1">

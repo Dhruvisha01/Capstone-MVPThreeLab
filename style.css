@@ -204,9 +204,9 @@
     /* Remove default border */
     border-radius: 25px;
     /* Rounded corners */
-    padding: 10px 20px;
+    padding: 15px 25px;
     /* Padding for size */
-    font-size: 16px;
+    font-size: 20px;
     /* Font size */
     cursor: pointer;
     /* Pointer cursor on hover */
@@ -313,9 +313,9 @@
 .circuitDiagramIcon img {
     /* width: 60%;
     height: 60%; */
-    padding-top: 3px;
+    padding-top: 0px;
     padding-bottom: 1px;
-    margin-bottom: 0px !important;
+    margin-bottom: 9.3px !important;
 }
 
 .obTable img {
@@ -353,8 +353,8 @@
 }
 
 .circuitDiagramModal img {
-    height: 70%;
-    width: 70%;
+    height: 100%;
+    width: 100%;
 }
 
 .newNextButtonDiv {

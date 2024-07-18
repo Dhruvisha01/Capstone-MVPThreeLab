@@ -80,11 +80,11 @@
 		}
 
 		#erase {
-			background-color: #1d4f77;
+			background-color: transparent;
 			/* Dark blue background */
 			color: white;
 			/* White text color */
-			border: none;
+			border: 2px solid white;
 			/* Remove default border */
 			border-radius: 25px;
 			/* Rounded corners */
@@ -114,7 +114,7 @@
 </head>
 
 <body>
-	<button id="lockButton">Finalize Positions</button>
+	<button id="lockButton">Finalize Position</button>
 	<button id="submitConnections">Submit</button>
 	<button id="erase"> Erase</button>
 	<div id="overlay"></div>
@@ -127,35 +127,35 @@
 		<div class="progress-container">
 			<div class="progress-step">
 				<div class="progress-circle">
-					<img src="/images/battery.png" alt="Battery Icon" style="width: 30px; height: 30px;">
+					<img src="/images/batteryOutline.svg" alt="Battery Icon" style="width: 30px; height: 30px;">
 				</div>
 				<div class="progress-text roboto-light">Learn the equipment</div>
 			</div>
 			<div class="progress-line"></div>
 			<div class="progress-step">
 				<div class="progress-circle">
-					<img src="/images/circuit.png" alt="Setup Icon" style="width: 30px; height: 30px;">
+					<img src="/images/circuitOutline.svg" alt="Setup Icon" style="width: 30px; height: 30px;">
 				</div>
 				<div class="progress-text roboto-light">Set up the equipment</div>
 			</div>
 			<div class="progress-line"></div>
 			<div class="progress-step">
 				<div class="progress-circle">
-					<img src="/images/procedure.png" alt="Procedures Icon" style="width: 30px; height: 30px;">
+					<img src="/images/stepsOutline.svg" alt="Procedures Icon" style="width: 30px; height: 30px;">
 				</div>
 				<div class="progress-text roboto-light">Learn the procedures</div>
 			</div>
 			<div class="progress-line"></div>
 			<div class="progress-step">
 				<div class="progress-circle">
-					<img src="/images/secondLast.png" alt="Experiment Icon" style="width: 30px; height: 30px;">
+					<img src="/images/settingsOutline.svg" alt="Experiment Icon" style="width: 30px; height: 30px;">
 				</div>
-				<div class="progress-text roboto-light">Experiment</div>
+				<div class="progress-text roboto-light">Do the Experiment</div>
 			</div>
 			<div class="progress-line"></div>
 			<div class="progress-step">
 				<div class="progress-circle">
-					<img src="/images/chat.png" alt="Record Icon" style="width: 30px; height: 30px;">
+					<img src="/images/recordOutline.svg" alt="Record Icon" style="width: 30px; height: 30px;">
 				</div>
 				<div class="progress-text roboto-light">Record observations</div>
 			</div>
@@ -210,7 +210,8 @@
 	</div>
 
 	<div class="connectWiresDiv" id="connectWiresDiv">
-		<h3>Now you’ve placed all equipment, let’s connect them by tapping one blue dot (the first terminal) and another blue dot(the second terminal).</h3>
+		<h3>Now you’ve placed all equipment, let’s connect them by tapping one blue dot and another
+			blue dot.</h3>
 		<div class="newNextButtonDiv" id="connectWiresDiv1">
 			<button class="next-button" id="next-button-fix">Next</button>
 		</div>
@@ -451,7 +452,8 @@
 			Please rotate your phone to portrait mode for the next section.
 		</h3>
 		<div class="redirectNext">
-			<button class="next-button"  id="redirectNext"> <a href="https://capstone-mvpthreewebsite.onrender.com/conclusion">Next</a></button>
+			<button class="next-button" id="redirectNext"> <a
+					href="https://capstone-mvpthreewebsite.onrender.com/conclusion">Next</a></button>
 		</div>
 	</div>
 
