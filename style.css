@@ -16,17 +16,23 @@
     font-style: normal;
 }
 
+h3 {
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #004A76;
+}
+
 
 #labIntro {
-    height: 80%;
+    height: 100%;
     width: 100% !important;
     background-color: white;
     position: absolute;
     bottom: 0px;
-    border-top-left-radius: 40px;
+    /* border-top-left-radius: 40px; */
     /* Top-left corner */
-    border-top-right-radius: 40px;
-    z-index: 1001;
+    /* border-top-right-radius: 40px; */
+    z-index: 1003;
     /* display: none; */
     overflow-y: auto;
 }
@@ -40,7 +46,7 @@
     background: rgba(0, 0, 0, 0.5);
     /* Semi-transparent black */
     display: none;
-    z-index: 1000;
+    z-index: 1002;
     /* Hidden by default */
 }
 
@@ -48,18 +54,19 @@
     color: #004A76;
     font-size: 30px;
     margin: 40px;
+    margin-left: 60px;
 }
 
 .introContent {
     margin: 40px;
+    margin-left: 60px;
 }
 
 .progress-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    margin: 20px 80px 20px 60px;
 }
 
 .progress-step {
@@ -84,7 +91,7 @@
     width: 100px;
     height: 2px;
     background-color: #87CEFA;
-    margin: 0 10px;
+    margin: 0 10px 40px 10px;
 }
 
 .progress-text {
@@ -100,8 +107,8 @@
 
 .next {
     position: absolute;
-    top: 30%;
-    right: 0%;
+    top: 40%;
+    right: 2%;
 }
 
 .content {
@@ -114,9 +121,9 @@
 
 .equipment-container {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     /* align-items: center; */
-    padding: 20px;
+    padding: 20px 100px 20px 20px;
     /* background-color: #e0f7fa; */
     border-radius: 10px;
     margin: 20px 0;
@@ -124,13 +131,13 @@
 }
 
 .equipment-container img {
-    width: 300px;
-    height: auto;
+    height: 180px;
     margin-right: 20px;
 }
 
 .equipment-text {
     text-align: left;
+    font-size: 20px;
 }
 
 .equipment-text h2 {
@@ -160,16 +167,21 @@
 
 .tutorialTitle {
     margin-bottom: 5px;
+    margin-left: 60px;
 }
 
 .tutorialImage {
-    width: 300px;
-    height: 220px;
-    background-color: #87CEFA;
+    /* width: 300px; */
+    /* height: 200px; */
+    /* background-color: #87CEFA; */
     margin-bottom: 10px;
     margin-left: 40px;
     margin-right: 30px;
-    border-radius: 40px;
+    border-radius: 15px;
+}
+
+.tutorialImage img {
+    border-radius: 15px;
 }
 
 .tutorialName {
@@ -180,18 +192,18 @@
 }
 
 .right-arrow img {
-    width: 50px;
-    height: 50px
+    width: 60px;
+    height: 60px
 }
 
 .left-arrow img {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 
 .left-arrow {
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 0;
 }
 
@@ -337,24 +349,27 @@
 }
 
 .circuitDiagramModal {
-    height: 50%;
-    width: 40%;
+
+    width: 400px;
     position: absolute;
-    top: 35%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+
     display: None;
     background-color: white;
     color: #004A76;
     text-align: center;
     align-items: center;
     justify-content: center;
-    z-index: 1001;
-    overflow-y: auto;
+    z-index: 1003;
+    border-radius: 10px;
 }
 
 .circuitDiagramModal img {
-    height: 100%;
-    width: 100%;
+    max-height: 90%;
+    max-width: 90%;
 }
 
 .newNextButtonDiv {
@@ -364,17 +379,16 @@
 
 .close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 15px;
     background-color: transparent;
     border: none;
     font-size: 24px;
     cursor: pointer;
 }
 
-.close-button:hover {
-    color: red;
-    /* Change color on hover */
+.close-button img {
+    width: 20px;
 }
 
 .fixPositionIntro {
@@ -635,7 +649,7 @@
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1004;
 }
 
 .tableContainer {
@@ -646,11 +660,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     position: relative;
-    z-index: 1001;
-    overflow: auto;
-    height: 60%;
-    top: 70px;
-    margin-bottom: 50px;
+    z-index: 1004;
+    /* overflow: auto; */
+    height: 70%;
+
 }
 
 .tableHeader {
@@ -670,7 +683,7 @@
 }
 
 .tableHeader .buttons button {
-    background-color: #4285F4;
+    background-color: #004A76;
     color: white;
     border: none;
     border-radius: 25px;
@@ -699,6 +712,21 @@
     height: 24px;
 }
 
+.closeButtonRB {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+    background: transparent;
+    z-index: 1003;
+
+}
+
+.tableScrollable {
+    overflow-y: auto;
+    height: 80%;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
@@ -712,8 +740,13 @@ td {
 }
 
 th {
-    background-color: #4285F4;
+    background-color: #00A1DE;
     color: white;
+}
+
+td {
+    background-color: #CAE6F1;
+    border-color: white;
 }
 
 .sub-header {
@@ -722,7 +755,7 @@ th {
 }
 
 input {
-    width: 100%;
+    width: 20px;
     border: none;
     text-align: center;
     background: transparent;
@@ -757,48 +790,86 @@ input {
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1003;
 }
 
 .hRBModal {
-    width: 50%;
+    width: 70%;
     max-width: 1000px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     position: relative;
-    top: 25%;
+    top: 12%;
     margin: auto;
-    height: 60%;
-    z-index: 1001;
-    overflow-y: auto;
+    height: 70%;
+    z-index: 1003;
+    display: flex;
+    flex-direction: column;
+
 
 }
 
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    /* or the background color of your modal */
+    z-index: 1;
+}
+
 .hRBModal h3 {
-    margin: 40px;
+    margin: 40px 0 20px 0;
     color: #004A76;
 }
 
 .checkbox-grid-HRB {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    width: 200px;
+    grid-gap: 10px 40px;
+    /* width: 200px; */
     /* Adjust as needed */
     margin: 0 auto;
     justify-content: center;
+
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-left: 10px;
+    padding-right: 40px;
+}
+
+.checkbox-item label {
+    width: 60px;
+}
+
+.scrollable {
+    overflow-y: auto;
+    max-height: calc(100% - 100px);
+    /* Adjust as necessary */
+}
+
+.safetyContent img {
+    width: 50px;
+    /* Adjust as necessary */
+    height: auto;
+    margin-left: 10px;
+    margin-right: 20px;
 }
 
 .checkbox-grid-LRB {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    width: 200px;
+    grid-gap: 10px 40px;
+    /* width: 200px; */
     /* Adjust as needed */
     margin: 0 auto;
     justify-content: center;
+
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-left: 10px;
+    padding-right: 40px;
 }
 
 
@@ -807,22 +878,39 @@ input {
     align-items: center;
     justify-content: center;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
 }
 
 .tableHeaderHRB {
-    margin-bottom: 0px !important;
+    /* margin-bottom: 5px !important; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .headerTitle {
-    margin: 40px 40px 10px 40px !important;
+    margin: 10px 40px 10px 40px !important;
 }
 
 .deflection {
-    margin: 10px 40px 20px 40px !important;
+    background-color: #C2E7FF;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: #004A76;
+    font-weight: 500;
+    border-radius: 5px;
+
+
 }
+
+.submitHRB {
+    display: flex;
+    justify-content: end;
+}
+
+
+.deflection {}
 
 .modal-overlay-key {
     position: fixed;
@@ -834,7 +922,7 @@ input {
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1003;
 }
 
 .keyStatus {
@@ -848,7 +936,7 @@ input {
     top: 25%;
     margin: auto;
     height: 25%;
-    z-index: 1001;
+    z-index: 1003;
     overflow-y: auto;
     text-align: center;
 }
@@ -891,11 +979,11 @@ input {
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 1004;
 }
 
 .lRBModal {
-    width: 50%;
+    /* width: 50%;
     max-width: 1000px;
     background-color: white;
     border-radius: 10px;
@@ -906,7 +994,22 @@ input {
     margin: auto;
     height: 60%;
     z-index: 1001;
-    overflow-y: auto;
+    overflow-y: auto; */
+
+
+    width: 70%;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    top: 12%;
+    margin: auto;
+    height: 70%;
+    z-index: 1004;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -1047,4 +1150,40 @@ input {
 .redirectNext a {
     text-decoration: none;
     color: white;
+}
+
+.safety {
+    background-color: #004A76;
+    color: white;
+    width: 300px;
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    z-index: 1005;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.safetyContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.safetyContent p {
+    margin-top: 16px;
+    line-height: 21px;
+}
+
+.safetyContent::before {
+    content: "";
+    position: absolute;
+    top: -17px;
+    /* Adjust this to position the triangle */
+    left: 40%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #004A76 transparent;
+    /* Adjust the bottom border color to match the background color of .safetyContent */
 }

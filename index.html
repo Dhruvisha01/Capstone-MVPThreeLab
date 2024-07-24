@@ -10,6 +10,9 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 		rel="stylesheet">
+
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
 	<style>
 		body {
 			margin: 0;
@@ -43,7 +46,7 @@
 			position: absolute;
 			top: 10%;
 			right: 2%;
-			z-index: 1001;
+			z-index: 1003;
 			display: none
 		}
 
@@ -76,7 +79,7 @@
 			position: absolute;
 			top: 10%;
 			right: 2%;
-			z-index: 1001;
+			z-index: 1003;
 		}
 
 		#erase {
@@ -107,19 +110,19 @@
 			position: absolute;
 			top: 10%;
 			right: 15%;
-			z-index: 1001;
+			z-index: 1003;
 			display: none
 		}
 	</style>
 </head>
 
-<body>
+<body class="roboto-regular">
 	<button id="lockButton">Finalize Position</button>
 	<button id="submitConnections">Submit</button>
 	<button id="erase"> Erase</button>
 	<div id="overlay"></div>
 	<div id="labIntro">
-		<h1 class="roboto-bold introTitle">Welcome to the lab simulation</h1>
+		<h1 class="roboto-bold introTitle">Welcome to the Lab Simulation!</h1>
 		<p class="introContent roboto-regular">In this section, you’ll test your hypothesis by doing the experiment
 			yourself.
 			Here’s how the lab works:</p>
@@ -162,8 +165,8 @@
 		</div>
 
 
-		<div class="next" id="next">
-			<img src="/images/arrow.png" alt="">
+		<div class="next right-arrow" id="next">
+			<img src="/images/arrow.svg" alt="">
 		</div>
 	</div>
 
@@ -194,13 +197,15 @@
 		<img src="/images/upArrow.png" alt="">
 	</div>
 	<div class="circuitDiagramModal" id="circuitDiagramModal">
-		<button class="close-button" id="closeButton">&times;</button>
-		<h3>Circuit Diagram</h3>
-		<img src="/images/diagram.png" alt="">
+		<button class="close-button" id="closeButton">
+			<img src="/images/close.svg" alt="">
+		</button>
+		<h3 class="roboto-bold">Circuit Diagram</h3>
+		<img src="/images/diagram.svg" alt="">
 	</div>
 
 	<div class="fixPositionIntro" id="fixPositionIntro">
-		<h3>Now let’s arrange all the equipment. You can move them freely. <br><br>
+		<h3 class="roboto-bold">Now let’s arrange all the equipment. You can move them freely. <br><br>
 
 			Once done, tap on the “Finalize Position” button on the top right corner.</h3>
 		<div class="next nextButtonDiv  next-button-fix">
@@ -210,7 +215,7 @@
 	</div>
 
 	<div class="connectWiresDiv" id="connectWiresDiv">
-		<h3>Now you’ve placed all equipment, let’s connect them by tapping one blue dot and another
+		<h3 class="roboto-bold">Now you’ve placed all equipment, let’s connect them by tapping one blue dot and another
 			blue dot.</h3>
 		<div class="newNextButtonDiv" id="connectWiresDiv1">
 			<button class="next-button" id="next-button-fix">Next</button>
@@ -233,92 +238,96 @@
 	</div>
 
 	<div class="obTableIntro" id="obTableIntro">
-		<h3>Next, follow the experiment procedures, and fill in your findings in the observation table here.</h3>
+		<h3 class="roboto-bold">Next, follow the experiment procedures, and fill in your findings in the observation
+			table here.</h3>
 	</div>
 
 	<div class="modal-overlay" id="modal-overlay">
 		<div class="tableContainer" id="observationTable">
 			<div class="tableHeader">
-				<h3>Observation Table</h3>
+				<h3 class="roboto-bold">Observation Table</h3>
 				<div class="buttons">
-					<button class="submitButton" id="submitObservations">Submit</button>
+					<button class="submitButton" id="submitObservations">Complete Lab</button>
 					<button class="closeButton" id="closeButtonOB">
-						<img src="/images/Vector.svg" alt="Close Icon">
+						<img src="/images/close.svg" alt="Close Icon">
 					</button>
 				</div>
 
 
 			</div>
-			<table>
-				<thead>
-					<tr>
-						<th rowspan="2">No.</th>
-						<th colspan="1">High Resistance</th>
-						<th colspan="1">Deflection in the Galvanometer</th>
-						<th colspan="1">Shunt Resistance</th>
-						<th colspan="1">Half-deflection in the Galvanometer</th>
-						<th colspan="1">Galvanometer Resistance</th>
-						<th colspan="1">Figure of Merit</th>
-					</tr>
-					<tr class="sub-header">
-						<th>R (Ω)</th>
-						<th>θ (divisions)</th>
-						<th>S (Ω)</th>
-						<th>θ/2 (divisions)</th>
-						<th>G = RS/(R-S)</th>
-						<th>k = E/((R+G)θ)</th>
-					</tr>
-				</thead>
-				<tbody>
-					<!-- Example rows, add more as needed -->
-					<tr>
-						<td>1</td>
-						<td><input type="text" id="input_1_1"></td>
-						<td><input type="text" id="input_1_2"></td>
-						<td><input type="text" id="input_1_3"></td>
-						<td><input type="text" id="input_1_4"></td>
-						<td><input type="text" id="input_1_5"></td>
-						<td><input type="text" id="input_1_6"></td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><input type="text" id="input_2_1"></td>
-						<td><input type="text" id="input_2_2"></td>
-						<td><input type="text" id="input_2_3"></td>
-						<td><input type="text" id="input_2_4"></td>
-						<td><input type="text" id="input_2_5"></td>
-						<td><input type="text" id="input_2_6"></td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td><input type="text" id="input_3_1"></td>
-						<td><input type="text" id="input_3_2"></td>
-						<td><input type="text" id="input_3_3"></td>
-						<td><input type="text" id="input_3_4"></td>
-						<td><input type="text" id="input_3_5"></td>
-						<td><input type="text" id="input_3_6"></td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td><input type="text" id="input_4_1"></td>
-						<td><input type="text" id="input_4_2"></td>
-						<td><input type="text" id="input_4_3"></td>
-						<td><input type="text" id="input_4_4"></td>
-						<td><input type="text" id="input_4_5"></td>
-						<td><input type="text" id="input_4_6"></td>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td><input type="text" id="input_5_1"></td>
-						<td><input type="text" id="input_5_2"></td>
-						<td><input type="text" id="input_5_3"></td>
-						<td><input type="text" id="input_5_4"></td>
-						<td><input type="text" id="input_5_5"></td>
-						<td><input type="text" id="input_5_6"></td>
-					</tr>
-					<!-- Add more rows as needed -->
-				</tbody>
-			</table>
+			<div class="tableScrollable">
+				<table>
+					<thead>
+						<tr>
+							<th rowspan="2">No.</th>
+							<th colspan="1">High Resistance</th>
+							<th colspan="1">Deflection in the Galvanometer</th>
+							<th colspan="1">Shunt Resistance</th>
+							<th colspan="1">Half-deflection in the Galvanometer</th>
+							<th colspan="1">Galvanometer Resistance</th>
+							<th colspan="1">Figure of Merit</th>
+						</tr>
+						<tr class="sub-header">
+							<th>\(R\) \((\Omega)\)</th>
+							<th>\(\theta\) (divisions)</th>
+							<th>\(S\) \((\Omega) \)</th>
+							<th>\(\frac{\theta}{2}\) (divisions)</th>
+							<th>\(G = \frac{RS}{R-S} \)</th>
+							<th>\(k = \frac{E}{(R+G)\theta} \)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Example rows, add more as needed -->
+						<tr>
+							<td>1</td>
+							<td><input type="text" id="input_1_1"></td>
+							<td><input type="text" id="input_1_2"></td>
+							<td><input type="text" id="input_1_3"></td>
+							<td><input type="text" id="input_1_4"></td>
+							<td><input type="text" id="input_1_5"></td>
+							<td><input type="text" id="input_1_6"></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><input type="text" id="input_2_1"></td>
+							<td><input type="text" id="input_2_2"></td>
+							<td><input type="text" id="input_2_3"></td>
+							<td><input type="text" id="input_2_4"></td>
+							<td><input type="text" id="input_2_5"></td>
+							<td><input type="text" id="input_2_6"></td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><input type="text" id="input_3_1"></td>
+							<td><input type="text" id="input_3_2"></td>
+							<td><input type="text" id="input_3_3"></td>
+							<td><input type="text" id="input_3_4"></td>
+							<td><input type="text" id="input_3_5"></td>
+							<td><input type="text" id="input_3_6"></td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><input type="text" id="input_4_1"></td>
+							<td><input type="text" id="input_4_2"></td>
+							<td><input type="text" id="input_4_3"></td>
+							<td><input type="text" id="input_4_4"></td>
+							<td><input type="text" id="input_4_5"></td>
+							<td><input type="text" id="input_4_6"></td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><input type="text" id="input_5_1"></td>
+							<td><input type="text" id="input_5_2"></td>
+							<td><input type="text" id="input_5_3"></td>
+							<td><input type="text" id="input_5_4"></td>
+							<td><input type="text" id="input_5_5"></td>
+							<td><input type="text" id="input_5_6"></td>
+						</tr>
+						<!-- Add more rows as needed -->
+					</tbody>
+				</table>
+			</div>
+
 		</div>
 	</div>
 
@@ -332,98 +341,140 @@
 
 	<div class="modal-overlay-hrb" id="modal-overlay-hrb">
 		<div class="hRBModal">
-			<div class="tableHeader tableHeaderHRB">
+			<div class="tableHeader tableHeaderHRB sticky-header topHRB">
 				<h3 class="roboto-bold headerTitle">High Resistance Box</h3>
-				<button class="closeButton" id="closeButtonHRB">
-					<img src="/images/Vector.svg" alt="Close Icon">
-				</button>
-			</div>
-			<div class="tableHeader tableHeaderHRB">
-				<h3 class="deflection">Deflection: <span id="deflectionValue">0</span></h3>
-				<div class="buttons">
-					<button class="submitButton" id="submitHRBResistance">Submit</button>
+				<div class="deflection">Deflection: &nbsp;<span id="deflectionValue">0</span></div>
 
+			</div>
+			<button class="closeButton closeButtonRB" id="closeButtonHRB">
+				<img src="/images/close.svg" alt="Close Icon">
+			</button>
+
+			<div class="checkbox-grid-HRB scrollable">
+				<div class="checkbox-item"><input type="checkbox" id="checkbox1" value="1"><label for="checkbox1">1
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox2" value="2"><label for="checkbox2">2
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox3" value="2"><label for="checkbox3">2
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox4" value="5"><label for="checkbox4">5
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox5" value="10"><label for="checkbox5">10
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox6" value="20"><label for="checkbox6">20
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox7" value="20"><label for="checkbox7">20
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox8" value="50"><label for="checkbox8">50
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox9" value="100"><label for="checkbox9">100
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox10" value="200"><label
+						for="checkbox10">200 \(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox11" value="200"><label
+						for="checkbox11">200 \(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox12" value="500"><label
+						for="checkbox12">500 \(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox13" value="1000"><label
+						for="checkbox13">1000 \(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox14" value="2000"><label
+						for="checkbox14">2000 \(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox15" value="2000"><label
+						for="checkbox15">2000 \(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox16" value="5000"><label
+						for="checkbox16">5000 \(\Omega\)</label></div>
+			</div>
+			<div class="safety" id="safety">
+				<div class="safetyContent">
+					<img src="/images/safety.svg" alt="">
+					<p class="roboto-regular">
+						Oh no! We damaged the galvanometer because the deflection exceeds the maximum deflection of 30!
+					</p>
 				</div>
 			</div>
-			<div class="checkbox-grid-HRB">
-				<div class="checkbox-item"><input type="checkbox" id="checkbox1" value="1"><label
-						for="checkbox1">1</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox2" value="2"><label
-						for="checkbox2">2</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox3" value="2"><label
-						for="checkbox3">2</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox4" value="5"><label
-						for="checkbox4">5</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox5" value="10"><label
-						for="checkbox5">10</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox6" value="20"><label
-						for="checkbox6">20</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox7" value="20"><label
-						for="checkbox7">20</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox8" value="50"><label
-						for="checkbox8">50</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox9" value="100"><label
-						for="checkbox9">100</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox10" value="200"><label
-						for="checkbox10">200</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox11" value="200"><label
-						for="checkbox11">200</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox12" value="500"><label
-						for="checkbox12">500</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox13" value="1000"><label
-						for="checkbox13">1000</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox14" value="2000"><label
-						for="checkbox14">2000</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox15" value="2000"><label
-						for="checkbox15">2000</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox16" value="5000"><label
-						for="checkbox16">5000</label></div>
+			<div class="safety" id="safetyLow">
+				<div class="safetyContent">
+					<img src="/images/safety.svg" alt="">
+					<p class="roboto-regular">
+						The deflection is less than 5. Such low deflection might not provide accurate results because it
+						is
+						near zero and hard to read.
+					</p>
+				</div>
+			</div>
+			<div class="tableHeader tableHeaderHRB sticky-header submitHRB">
+				<div class="buttons">
+					<button class="submitButton" id="submitHRBResistance">Update Resistance</button>
+				</div>
 			</div>
 		</div>
+
+
+
 	</div>
 
 	<div class="modal-overlay-lrb" id="modal-overlay-lrb">
 		<div class="lRBModal">
-			<div class="tableHeader tableHeaderHRB">
-				<h3 class="roboto-bold headerTitle">Low Resistance Box</h3>
-				<button class="closeButton" id="closeButtonLRB">
-					<img src="/images/Vector.svg" alt="Close Icon">
-				</button>
+			<div class="tableHeader tableHeaderHRB sticky-header topHRB">
+				<h3 class="roboto-bold headerTitle">Shunt Resistance Box</h3>
+				<div class="deflection">Deflection: &nbsp;<span id="deflectionValueLRB">0</span></div>
 			</div>
-			<div class="tableHeader tableHeaderHRB">
-				<h3 class="deflection">Deflection: <span id="deflectionValueLRB">0</span></h3>
-				<div class="buttons">
-					<button class="submitButton" id="submitLRBResistance">Submit</button>
 
+			<button class="closeButton closeButtonRB" id="closeButtonLRB">
+				<img src="/images/close.svg" alt="Close Icon">
+			</button>
+
+			<div class="checkbox-grid-LRB">
+				<div class="checkbox-item"><input type="checkbox" id="checkbox1" value="1"><label for="checkbox1">1
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox2" value="2"><label for="checkbox2">2
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox3" value="2"><label for="checkbox3">2
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox4" value="5"><label for="checkbox4">5
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox5" value="10"><label for="checkbox5">10
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox6" value="20"><label for="checkbox6">20
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox7" value="20"><label for="checkbox7">20
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox8" value="50"><label for="checkbox8">50
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox9" value="100"><label for="checkbox9">100
+						\(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox10" value="200"><label
+						for="checkbox10">200 \(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox11" value="200"><label
+						for="checkbox11">200 \(\Omega\)</label></div>
+				<div class="checkbox-item"><input type="checkbox" id="checkbox12" value="500"><label
+						for="checkbox12">500 \(\Omega\)</label></div>
+			</div>
+			<div class="safety" id="safetyLRB">
+				<div class="safetyContent">
+					<img src="/images/safety.svg" alt="">
+					<p class="roboto-regular">
+						Oh no! We damaged the galvanometer because the deflection exceeds the maximum deflection of 30!
+					</p>
 				</div>
 			</div>
-			<div class="checkbox-grid-LRB">
-				<div class="checkbox-item"><input type="checkbox" id="checkbox1" value="1"><label
-						for="checkbox1">1</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox2" value="2"><label
-						for="checkbox2">2</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox3" value="2"><label
-						for="checkbox3">2</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox4" value="5"><label
-						for="checkbox4">5</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox5" value="10"><label
-						for="checkbox5">10</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox6" value="20"><label
-						for="checkbox6">20</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox7" value="20"><label
-						for="checkbox7">20</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox8" value="50"><label
-						for="checkbox8">50</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox9" value="100"><label
-						for="checkbox9">100</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox10" value="200"><label
-						for="checkbox10">200</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox11" value="200"><label
-						for="checkbox11">200</label></div>
-				<div class="checkbox-item"><input type="checkbox" id="checkbox12" value="500"><label
-						for="checkbox12">500</label></div>
+			<div class="safety" id="safetyLow">
+				<div class="safetyContent">
+					<img src="/images/safety.svg" alt="">
+					<p class="roboto-regular">
+						The deflection is less than 5. Such low deflection might not provide accurate results because it
+						is
+						near zero and hard to read.
+					</p>
+				</div>
+			</div>
+			<div class="tableHeader tableHeaderHRB sticky-header submitHRB">
+				<div class="buttons">
+					<button class="submitButton" id="submitLRBResistance">Update Resistance</button>
+				</div>
 			</div>
 		</div>
+
 	</div>
 
 
@@ -462,7 +513,7 @@
 			<div class="tableHeader tableHeaderHRB">
 				<h3 class="roboto-bold headerTitle">Lab Information</h3>
 				<button class="closeButton closeInfo" id="closeInfo">
-					<img src="/images/Vector.svg" alt="Close Icon">
+					<img src="/images/close.svg" alt="Close Icon">
 				</button>
 			</div>
 			<p class="roboto-regular">

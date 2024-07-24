@@ -116,52 +116,52 @@ document.addEventListener('DOMContentLoaded', () => {
 function LabIntro() {
     const labIntroDiv = document.getElementById('labIntro');
     labIntroDiv.innerHTML = `
-    <h1 class="roboto-bold introTitle">Welcome to the lab simulation</h1>
-		<p class="introContent roboto-regular">In this section, you’ll test your hypothesis by doing the experiment
-			yourself.
-			Here’s how the lab works:</p>
+    <h1 class="roboto-bold introTitle">Welcome to the Lab Simulation!</h1>
+    <p class="introContent roboto-regular">In this section, you’ll test your hypothesis by doing the experiment
+        yourself.
+        Here's how the lab works:</p>
 
-		<div class="progress-container">
-			<div class="progress-step">
-				<div class="progress-circle">
-					<img src="/images/battery.png" alt="Battery Icon" style="width: 30px; height: 30px;">
-				</div>
-				<div class="progress-text roboto-light">Learn the equipment</div>
-			</div>
-			<div class="progress-line"></div>
-			<div class="progress-step">
-				<div class="progress-circle">
-					<img src="/images/circuit.png" alt="Setup Icon" style="width: 30px; height: 30px;">
-				</div>
-				<div class="progress-text roboto-light">Set up the equipment</div>
-			</div>
-			<div class="progress-line"></div>
-			<div class="progress-step">
-				<div class="progress-circle">
-					<img src="/images/procedure.png" alt="Procedures Icon" style="width: 30px; height: 30px;">
-				</div>
-				<div class="progress-text roboto-light">Learn the procedures</div>
-			</div>
-			<div class="progress-line"></div>
-			<div class="progress-step">
-				<div class="progress-circle">
-					<img src="/images/secondLast.png" alt="Experiment Icon" style="width: 30px; height: 30px;">
-				</div>
-				<div class="progress-text roboto-light">Experiment</div>
-			</div>
-			<div class="progress-line"></div>
-			<div class="progress-step">
-				<div class="progress-circle">
-					<img src="/images/chat.png" alt="Record Icon" style="width: 30px; height: 30px;">
-				</div>
-				<div class="progress-text roboto-light">Record observations</div>
-			</div>
-		</div>
+    <div class="progress-container">
+        <div class="progress-step">
+            <div class="progress-circle">
+                <img src="/images/batteryOutline.svg" alt="Battery Icon" style="width: 30px; height: 30px;">
+            </div>
+            <div class="progress-text roboto-light">Learn the equipment</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step">
+            <div class="progress-circle">
+                <img src="/images/circuitOutline.svg" alt="Setup Icon" style="width: 30px; height: 30px;">
+            </div>
+            <div class="progress-text roboto-light">Set up the equipment</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step">
+            <div class="progress-circle">
+                <img src="/images/stepsOutline.svg" alt="Procedures Icon" style="width: 30px; height: 30px;">
+            </div>
+            <div class="progress-text roboto-light">Learn the procedures</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step">
+            <div class="progress-circle">
+                <img src="/images/settingsOutline.svg" alt="Experiment Icon" style="width: 30px; height: 30px;">
+            </div>
+            <div class="progress-text roboto-light">Do the Experiment</div>
+        </div>
+        <div class="progress-line"></div>
+        <div class="progress-step">
+            <div class="progress-circle">
+                <img src="/images/recordOutline.svg" alt="Record Icon" style="width: 30px; height: 30px;">
+            </div>
+            <div class="progress-text roboto-light">Record observations</div>
+        </div>
+    </div>
 
 
-		<div class="next" id="next">
-			<img src="/images/arrow.png" alt="">
-		</div>
+    <div class="next right-arrow" id="next">
+        <img src="/images/arrow.svg" alt="">
+    </div>
     `
 }
 
@@ -171,7 +171,7 @@ function GalvIntro() {
         <h2 class = "roboto-bold introTitle tutorialTitle">Let's start by learning the equipment name and their functions!</h2>
         <div class="equipment-container">
             <div class="prevLab left-arrow">
-                <img src="/images/leftArrow.png" alt="">
+                <img src="/images/leftArrow.svg" alt="">
             </div>
             <div class="tutorialImage"> 
                 <img src="/images/galvanometerUpdated.png" alt="Galvanometer">
@@ -179,12 +179,13 @@ function GalvIntro() {
             <div class="equipment-text">
                 <h2 class = "tutorialName roboto-bold">Galvanometer</h2>
                 <p class = "roboto-regular">A galvanometer measures small electric currents in the circuit.</p>
-                <p class = "roboto-regular">Connect the galvanometer with proper polarity to get accurate readings and avoid damage.</p>
+                <p class = "roboto-regular">Avoid damage by limiting the amount of current flowing through the galvanometer.</p>
             </div>
-            <div class="next right-arrow nextBattery">
-			    <img src="/images/arrow.png" alt="">
-		    </div>
+            
         </div>
+        <div class="next right-arrow nextBattery">
+			    <img src="/images/arrow.svg" alt="">
+		    </div>
     `;
 }
 
@@ -194,7 +195,7 @@ function BatteryIntro() {
         <h2 class = "roboto-bold introTitle tutorialTitle">Let's start by learning the equipment name and their functions!</h2>
         <div class="equipment-container">
             <div class="prevGalv left-arrow">
-                <img src="/images/leftArrow.png" alt="">
+                <img src="/images/leftArrow.svg" alt="">
             </div>
             <div class="tutorialImage"> 
                 <img src="/images/batteryUpdated.png" alt="Galvanometer">
@@ -205,10 +206,11 @@ function BatteryIntro() {
                 </p>
                 <p class = "roboto-regular">Connect the battery to the circuit, ensuring the correct polarity to avoid damage.</p>
             </div>
-            <div class="next right-arrow nextHighRB">
-			    <img src="/images/arrow.png" alt="">
-		    </div>
+            
         </div>
+        <div class="next right-arrow nextHighRB">
+			    <img src="/images/arrow.svg" alt="">
+		    </div>
     `;
 }
 
@@ -218,22 +220,23 @@ function HighRBIntro() {
         <h2 class = "roboto-bold introTitle tutorialTitle">Let's start by learning the equipment name and their functions!</h2>
         <div class="equipment-container">
             <div class="prevBattery left-arrow">
-                <img src="/images/leftArrow.png" alt="">
+                <img src="/images/leftArrow.svg" alt="">
             </div>
             <div class="tutorialImage"> 
                 <img src="/images/high.png" alt="Galvanometer">
             </div>
             <div class="equipment-text">
-                <h2 class = "tutorialName roboto-bold" style = "font-size: 14px">High Resistance Box</h2>
-                <p class = "roboto-regular" style = "font-size: 12.5px">A high resistance box limits the current flowing through the circuit and helps achieve the desired deflection of the galvanometer using the half deflection method. 
+                <h2 class = "tutorialName roboto-bold">High Resistance Box</h2>
+                <p class = "roboto-regular" >A high resistance box limits the current flowing through the circuit and helps achieve the desired deflection of the galvanometer using the half deflection method. 
                 </p>
-                <p class = "roboto-regular" style = "font-size: 12.5px">Adjust the resistance by tapping the high resistance box and selecting the values to control the current and deflection.
+                <p class = "roboto-regular">Adjust the resistance by tapping the high resistance box and selecting the values to control the current and deflection.
                 </p>
             </div>
-            <div class="next right-arrow nextShuntRB">
-			    <img src="/images/arrow.png" alt="">
-		    </div>
+            
         </div>
+        <div class="next right-arrow nextShuntRB">
+			    <img src="/images/arrow.svg" alt="">
+		</div>
     `;
 }
 
@@ -243,23 +246,24 @@ function ShuntRBIntro() {
         <h2 class = "roboto-bold introTitle tutorialTitle">Let's start by learning the equipment name and their functions!</h2>
         <div class="equipment-container">
             <div class="prevHighRB left-arrow">
-                <img src="/images/leftArrow.png" alt="">
+                <img src="/images/leftArrow.svg" alt="">
             </div>
             <div class="tutorialImage"> 
                 <img src="/images/shunt.png" alt="Galvanometer">
             </div>
             <div class="equipment-text">
-                <h2 class = "tutorialName roboto-bold" style = "font-size: 14px">Shunt Resistance Box</h2>
-                <p class = "roboto-regular" style = "font-size: 13.5px">A shunt resistance box diverts current away from the galvanometer and helps achieve the desired deflection using the half deflection method.
+                <h2 class = "tutorialName roboto-bold" >Shunt Resistance Box</h2>
+                <p class = "roboto-regular" >A shunt resistance box diverts current away from the galvanometer and helps achieve the desired deflection using the half deflection method.
 
                 </p>
-                <p class = "roboto-regular" style = "font-size: 13.5px">Adjust the resistance by tapping the shunt resistance box and selecting the values to control the current and deflection.
+                <p class = "roboto-regular" >Adjust the resistance by tapping the shunt resistance box and selecting the values to control the current and deflection.
                 </p>
             </div>
-            <div class="next right-arrow nextKey1">
-			    <img src="/images/arrow.png" alt="">
-		    </div>
+            
         </div>
+        <div class="next right-arrow nextKey1">
+			    <img src="/images/arrow.svg" alt="">
+		    </div>
     `;
 }
 function Key1Intro() {
@@ -268,7 +272,7 @@ function Key1Intro() {
         <h2 class = "roboto-bold introTitle tutorialTitle">Let's start by learning the equipment name and their functions!</h2>
         <div class="equipment-container">
             <div class="prevShuntRB left-arrow">
-                <img src="/images/leftArrow.png" alt="">
+                <img src="/images/leftArrow.svg" alt="">
             </div>
             <div class="tutorialImage"> 
                 <img src="/images/key.png" alt="Galvanometer">
@@ -280,10 +284,11 @@ function Key1Intro() {
                 <p class = "roboto-regular">Tap Key 1 to start or stop the current flow during the experiment.
                 </p>
             </div>
-            <div class="next right-arrow nextKey2">
-			    <img src="/images/arrow.png" alt="">
-		    </div>
+            
         </div>
+        <div class="next right-arrow nextKey2">
+			    <img src="/images/arrow.svg" alt="">
+		    </div>
     `;
 }
 function Key2Intro() {
@@ -292,7 +297,7 @@ function Key2Intro() {
         <h2 class = "roboto-bold introTitle tutorialTitle">Let's start by learning the equipment name and their functions!</h2>
         <div class="equipment-container">
             <div class="prevKey1 left-arrow">
-                <img src="/images/leftArrow.png" alt="">
+                <img src="/images/leftArrow.svg" alt="">
             </div>
             <div class="tutorialImage"> 
                 <img src="/images/key.png" alt="Galvanometer">
@@ -316,6 +321,7 @@ function circuitDiagram() {
     const labIntro = document.getElementById('labIntro')
     const toolBox = document.getElementById('toolBox')
     const highlight = document.getElementById('highlight')
+    document.getElementById('overlay').style.zIndex = "1001"
     labIntro.style.display = "none"
     circuitDiagramIntro.style.display = "block"
     toolBox.style.display = "block"
@@ -328,6 +334,7 @@ function displayDiagram() {
     circuitDiagramModal.style.display = "block"
     const toolBox = document.getElementById('toolBox')
     const highlight = document.getElementById('highlight')
+    document.getElementById('overlay').style.zIndex = "1002"
     // toolBox.style.display = "none"
     highlight.style.display = "none"
     circuitDiagramIntro.style.display = "none"
@@ -338,6 +345,8 @@ document.getElementById('closeButton').addEventListener('click', function () {
     if (tutorial) {
         document.getElementById('fixPositionIntro').style.display = 'block';
         document.getElementById('lockButton').style.display = "block"
+        document.getElementById('lockButton').disabled = true
+        document.getElementById('overlay').style.zIndex = "1001"
         const highlight = document.getElementById('highlight')
         highlight.style.display = "block"
         highlight.style.left = "88%"
@@ -359,6 +368,7 @@ document.getElementById('next-button-fix').addEventListener('click', function ()
     highlight.style.display = "none"
     fixPositionIntro.style.display = "none"
     tutorial = false
+    document.getElementById('lockButton').disabled = false
     document.getElementById('lockButton').style.display = "block"
     hideDiv()
 })
@@ -415,6 +425,8 @@ function doLab() {
     document.getElementById("wireFeedbackDiv").style.display = "none";
     document.getElementById('steps').style.display = "none"
     tutorial = false
+    document.getElementById('erase').disabled = false
+    document.getElementById('submitConnections').disabled = false
 
 }
 var directionOfDeflection = null
@@ -495,7 +507,7 @@ function showHint() {
 
 <div class="button-container">
 <div class="hint-navigation">
-<img src="/images/leftArrow.png" id="prevHint" class="arrow-button" alt="Previous Hint">
+<img src="/images/leftArrow.svg" id="prevHint" class="arrow-button" alt="Previous Hint">
 <h3 class = "roboto-bold hintCounterText"><span id="hintCounter">Hint ${currentHintIndex + 1}</span></h3>
 <img src="/images/arrow.png" id="nextHint" class="arrow-button" alt="Next Hint">
 </div>
@@ -579,7 +591,7 @@ function steps() {
 		</h3>
 		<div class="scrollableSteps">
 			<h4 class="roboto-bold">
-				1. Choose a very large resistance value for the high-resistance box (R) so that the electricity goes through the galvanometer is small to start with.
+				1. Choose a very large resistance value for the high-resistance box (R) so that the current goes through the galvanometer is small to start with.
 			</h4>
 			<h4 class="roboto-bold">
 				2. Close key k1 to close the circuit (R, G, E, k1).
@@ -778,11 +790,90 @@ document.getElementById('submitHRBResistance').addEventListener('click', functio
     }
     else if (!key1Open && key2Open) {
         if (directionOfDeflection == "right") {
-            document.getElementById('deflectionValue').textContent = theta;
+            if (theta > 30) {
+                document.getElementById('deflectionValue').textContent = theta;
+                document.getElementById("safety").style.display = "block";
+
+                // Add event listener to hide the safety message when clicking outside of it
+                function hideSafetyMessage(event) {
+                    console.log("Hiding safety box HRB")
+                    var safetyElement = document.getElementById("safety");
+                    if (!safetyElement.contains(event.target)) {
+                        safetyElement.style.display = "none";
+                        document.removeEventListener('click', hideSafetyMessage);
+                    }
+                }
+
+                // Add event listener to hide the safety message when clicking outside of it
+                setTimeout(function () {
+                    document.addEventListener('click', hideSafetyMessage);
+                }, 0);
+
+            }
+            else if (theta < 5) {
+                document.getElementById('deflectionValue').textContent = theta;
+                document.getElementById("safetyLow").style.display = "block";
+
+                // Add event listener to hide the safety message when clicking outside of it
+                function hideSafetyMessage(event) {
+                    var safetyElement = document.getElementById("safetyLow");
+                    if (!safetyElement.contains(event.target)) {
+                        safetyElement.style.display = "none";
+                        document.removeEventListener('click', hideSafetyMessage);
+                    }
+                }
+
+                // Add event listener to hide the safety message when clicking outside of it
+                setTimeout(function () {
+                    document.addEventListener('click', hideSafetyMessage);
+                }, 0);
+            }
+            else {
+                document.getElementById('deflectionValue').textContent = theta;
+            }
+
             // updateNeedle(theta)
         }
         else if (directionOfDeflection == "left") {
-            document.getElementById('deflectionValue').textContent = -theta;
+            if (theta > 30) {
+                document.getElementById('deflectionValue').textContent = -theta;
+                document.getElementById("safety").style.display = "block";
+
+                // Add event listener to hide the safety message when clicking outside of it
+                function hideSafetyMessage(event) {
+                    var safetyElement = document.getElementById("safety");
+                    if (!safetyElement.contains(event.target)) {
+                        safetyElement.style.display = "none";
+                        document.removeEventListener('click', hideSafetyMessage);
+                    }
+                }
+
+                // Add event listener to hide the safety message when clicking outside of it
+                setTimeout(function () {
+                    document.addEventListener('click', hideSafetyMessage);
+                }, 0);
+            }
+            else if (theta < 5) {
+                document.getElementById('deflectionValue').textContent = theta;
+                document.getElementById("safetyLow").style.display = "block";
+
+                // Add event listener to hide the safety message when clicking outside of it
+                function hideSafetyMessage(event) {
+                    var safetyElement = document.getElementById("safetyLow");
+                    if (!safetyElement.contains(event.target)) {
+                        safetyElement.style.display = "none";
+                        document.removeEventListener('click', hideSafetyMessage);
+                    }
+                }
+
+                // Add event listener to hide the safety message when clicking outside of it
+                setTimeout(function () {
+                    document.addEventListener('click', hideSafetyMessage);
+                }, 0);
+            }
+            else {
+                document.getElementById('deflectionValue').textContent = -theta;
+            }
             // updateNeedle(-theta)
         }
 
@@ -823,7 +914,7 @@ document.getElementById('submitLRBResistance').addEventListener('click', functio
     updateDeflectionShunt()
     let v = 2
     let i;
-    let rDash = R + (100 * sumShunt) / (100 - sumShunt);
+    let rDash = R + (100 * sumShunt) / (100 + sumShunt);
     console.log("R value", R)
     console.log("R Dash is", rDash)
     i = v / rDash;
@@ -837,11 +928,89 @@ document.getElementById('submitLRBResistance').addEventListener('click', functio
     }
     else {
         if (directionOfDeflection == "right") {
-            document.getElementById('deflectionValueLRB').textContent = theta;
+            if (theta > 30) {
+                document.getElementById('deflectionValueLRB').textContent = theta;
+                document.getElementById("safetyLRB").style.display = "block";
+
+                // Add event listener to hide the safety message when clicking outside of it
+                function hideSafetyMessage(event) {
+                    console.log("Hiding safety message LRB")
+                    var safetyElement = document.getElementById("safetyLRB");
+                    if (!safetyElement.contains(event.target)) {
+                        safetyElement.style.display = "none";
+                        document.removeEventListener('click', hideSafetyMessage);
+                    }
+                }
+
+                // Add event listener to hide the safety message when clicking outside of it
+                setTimeout(function () {
+                    document.addEventListener('click', hideSafetyMessage);
+                }, 0);
+            }
+            else if (theta < 5) {
+                document.getElementById('deflectionValueLRB').textContent = theta;
+                document.getElementById("safetyLow").style.display = "block";
+
+                // Add event listener to hide the safety message when clicking outside of it
+                function hideSafetyMessage(event) {
+                    var safetyElement = document.getElementById("safetyLow");
+                    if (!safetyElement.contains(event.target)) {
+                        safetyElement.style.display = "none";
+                        document.removeEventListener('click', hideSafetyMessage);
+                    }
+                }
+
+                // Add event listener to hide the safety message when clicking outside of it
+                setTimeout(function () {
+                    document.addEventListener('click', hideSafetyMessage);
+                }, 0);
+            }
+            else {
+                document.getElementById('deflectionValueLRB').textContent = theta;
+            }
             // updateNeedle(theta)
         }
         else if (directionOfDeflection == "left") {
-            document.getElementById('deflectionValueLRB').textContent = -theta;
+            if (theta > 30) {
+                document.getElementById('deflectionValueLRB').textContent = -theta;
+                document.getElementById("safetyLRB").style.display = "block";
+
+                // Add event listener to hide the safety message when clicking outside of it
+                function hideSafetyMessage(event) {
+                    var safetyElement = document.getElementById("safetyLRB");
+                    if (!safetyElement.contains(event.target)) {
+                        safetyElement.style.display = "none";
+                        document.removeEventListener('click', hideSafetyMessage);
+                    }
+                }
+
+                // Add event listener to hide the safety message when clicking outside of it
+                setTimeout(function () {
+                    document.addEventListener('click', hideSafetyMessage);
+                }, 0);
+            }
+            else if (theta < 5) {
+                document.getElementById('deflectionValueLRB').textContent = -theta;
+                document.getElementById("safetyLow").style.display = "block";
+
+                // Add event listener to hide the safety message when clicking outside of it
+                function hideSafetyMessage(event) {
+                    var safetyElement = document.getElementById("safetyLow");
+                    if (!safetyElement.contains(event.target)) {
+                        safetyElement.style.display = "none";
+                        document.removeEventListener('click', hideSafetyMessage);
+                    }
+                }
+
+                // Add event listener to hide the safety message when clicking outside of it
+                setTimeout(function () {
+                    document.addEventListener('click', hideSafetyMessage);
+                }, 0);
+            }
+            else {
+                document.getElementById('deflectionValueLRB').textContent = -theta;
+            }
+
             // updateNeedle(-theta)
 
         }

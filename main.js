@@ -653,6 +653,8 @@ lockButton.addEventListener('click', () => {
     connectWiresDiv.style.display = "block"
     submitConnectionsButton.style.display = "block"
     overlay.style.display = "block"
+    submitConnectionsButton.disabled = true
+    eraseButton.disabled = true
 
 
     if (dragControls) {
@@ -921,10 +923,29 @@ function onMouseClick(event) {
                     disableThreeJSInteraction
                     return;
                 }
-                else if (object.userData.customName === 'key2Model') {
+                else if (object.userData.customName === 'key2Model' || object.userData.customName === 'key2Group') {
                     if (key2Open) {
-                        object.position.y -= 0.5;
                         console.log('Clicked on the key2 model, Y position decreasedby 1');
+                        if (object.userData.customName === 'key2Group') {
+                            console.log("hello from clicking key2 group")
+                            let key2Model = null;
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key2Model') {
+                                    key2Model = obj;
+                                }
+                            });
+
+                            if (key2Model) {
+                                console.log("I got the model");
+                                key2Model.position.y -= 0.5;
+                                console.log('Key 2 model moved downwards by 0.5');
+                            } else {
+                                console.log("Key 2 model not found");
+                            }
+                        } else {
+                            object.position.y -= 0.5;
+                        }
+
                         const modalOverlayKey = document.getElementById('modal-overlay-key');
                         modalOverlayKey.style.display = "block"
                         modalOverlayKey.innerHTML = `
@@ -938,8 +959,26 @@ function onMouseClick(event) {
 
                     }
                     else {
-                        object.position.y += 0.5;
                         console.log('Clicked on the key2 model, Y position decreasedby 1');
+                        if (object.userData.customName === 'key2Group') {
+                            console.log("hello from clicking key2 group")
+                            let key2Model = null;
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key2Model') {
+                                    key2Model = obj;
+                                }
+                            });
+
+                            if (key2Model) {
+                                console.log("I got the model");
+                                key2Model.position.y += 0.5;
+                                console.log('Key 2 model moved upwards by 0.5');
+                            } else {
+                                console.log("Key 2 model not found");
+                            }
+                        } else {
+                            object.position.y += 0.5;
+                        }
                         key2Open = true
                         const modalOverlayKey = document.getElementById('modal-overlay-key');
                         modalOverlayKey.style.display = "block"
@@ -953,10 +992,28 @@ function onMouseClick(event) {
                     }
 
                 }
-                else if (object.userData.customName === 'key1Model') {
+                else if (object.userData.customName === 'key1Model' || object.userData.customName === 'key1Group') {
                     if (key1Open) {
-                        object.position.y -= 0.5;
                         console.log('Clicked on the key1 model, Y position decreasedby 1');
+                        if (object.userData.customName === 'key1Group') {
+                            console.log("hello from clicking key1 group")
+                            let key1Model = null;
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key1Model') {
+                                    key1Model = obj;
+                                }
+                            });
+
+                            if (key1Model) {
+                                console.log("I got the model");
+                                key1Model.position.y -= 0.5;
+                                console.log('Key 1 model moved downwards by 0.5');
+                            } else {
+                                console.log("Key 1 model not found");
+                            }
+                        } else {
+                            object.position.y -= 0.5;
+                        }
                         const modalOverlayKey = document.getElementById('modal-overlay-key');
                         modalOverlayKey.style.display = "block"
                         modalOverlayKey.innerHTML = `
@@ -970,8 +1027,26 @@ function onMouseClick(event) {
 
                     }
                     else {
-                        object.position.y += 0.5;
                         console.log('Clicked on the key1 model, Y position decreasedby 1');
+                        if (object.userData.customName === 'key1Group') {
+                            console.log("hello from clicking key1 group")
+                            let key1Model = null;
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key1Model') {
+                                    key1Model = obj;
+                                }
+                            });
+
+                            if (key1Model) {
+                                console.log("I got the model");
+                                key1Model.position.y += 0.5;
+                                console.log('Key 1 model moved downwards by 0.5');
+                            } else {
+                                console.log("Key 1 model not found");
+                            }
+                        } else {
+                            object.position.y += 0.5;
+                        }
                         const modalOverlayKey = document.getElementById('modal-overlay-key');
                         modalOverlayKey.style.display = "block"
                         modalOverlayKey.innerHTML = `
