@@ -483,7 +483,7 @@ export function invalidConnectionFunction(hintsArray) {
             <h3>
             If you’d like help, click on the ‘hint’ button.
             </h3>
-            <div class="nextButtonDiv" id="hintButton">
+            <div class="newNextButtonDiv" id="hintButton">
 			    <button class="next-button hint-button">
                 <img src="/images/hint.svg" alt="Bulb Icon">
                 Hint
@@ -497,24 +497,31 @@ export function invalidConnectionFunction(hintsArray) {
 function showHint() {
     console.log("Clicked hint button");
     const hintBox = document.getElementById("hintBox");
+    const wireFeedbackBox = document.getElementById('wireFeedbackDiv')
     hintBox.style.display = "block";
+    wireFeedbackBox.style.display = "none"
+
     hintBox.innerHTML = `
     <div class="hint-container">
-    <div id="hintContent">
-        <h3 class="roboto-bold">Hint: ${hints[currentHintIndex]}</h3>
+        <div id="hintContent">
+            <h3 class="roboto-bold">Hint: ${hints[currentHintIndex]}</h3>
+        </div>
     </div>
-</div>
 
-<div class="button-container">
-<div class="hint-navigation">
-<img src="/images/leftArrow.svg" id="prevHint" class="arrow-button" alt="Previous Hint">
-<h3 class = "roboto-bold hintCounterText"><span id="hintCounter">Hint ${currentHintIndex + 1}</span></h3>
-<img src="/images/arrow.png" id="nextHint" class="arrow-button" alt="Next Hint">
-</div>
-<button class="next-button  iGotIt" id="closeHint">
-I Got It
-</button>
-</div>
+    <div class="button-container">
+        <div class="hint-navigation">
+            <div class="hintArrowContainer"><img src="/images/leftArrow.svg" id="prevHint" class="arrow-button" alt="Previous Hint"></div>
+
+            <h3 class = "roboto-bold hintCounterText"><span id="hintCounter">Hint #${currentHintIndex + 1}</span></h3>
+            <div class = "hintArrowContainer"><img src="/images/arrow.png" id="nextHint" class="arrow-button" alt="Next Hint"></div>
+
+        </div>
+    </div>
+
+    <button class="next-button newNextButtonDiv iGotIt" id="closeHint">
+        I Got It
+    </button>
+
     `;
 
     document.getElementById('prevHint').addEventListener('click', prevHint);
@@ -582,73 +589,112 @@ function steps() {
     const steps = document.getElementById('steps')
     steps.style.display = "flex"
     steps.style.flexDirection = "column"
-    steps.style.alignItems = "center"
     // steps.style.justifyContent = "center"
     if (tutorial) {
         steps.innerHTML = `
-    <h3 class="roboto-bold header">
+    <h3 class="roboto-bold">
 			Experiment Procedure
 		</h3>
 		<div class="scrollableSteps">
-			<h4 class="roboto-bold">
-				1. Choose a very large resistance value for the high-resistance box (R) so that the current goes through the galvanometer is small to start with.
-			</h4>
-			<h4 class="roboto-bold">
-				2. Close key k1 to close the circuit (R, G, E, k1).
-			</h4>
-			<h4 class="roboto-bold">
-				3. Adjust the R value to allow the maximum deflection on the galvanometer.
-			</h4>
-			<h4 class="roboto-bold">
-				4. Observe and record the maximum deflection on the galvanometer as θ in the observation table.
-			</h4>
-			<h4 class="roboto-bold">
-				5. Without altering the resistance (R), close key k2 to make the shunt resistance box (S) parallel to the galvanometer (G).
-			</h4>
-			<h4 class="roboto-bold">
-				6. Adjust the variable resistance (S) until the galvanometer shows a deflection of exactly θ/2, half of your initial recorded deflection. Record the half deflection as θ/2 in the observation table.
-			</h4>
-			<h4 class="roboto-bold">
-				7. Choose a new resistance (R) and repeat the experiment five times
-			</h4>
+            <ol>
+                <li>
+                    <h4 class="roboto-bold">
+                        Choose a very large resistance value for the high-resistance box (R) so that the current goes
+                        through the galvanometer is small to start with.
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Close key k1 to close the circuit (R, G, E, k1).
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Adjust the R value to allow the maximum deflection on the galvanometer.
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Observe and record the maximum deflection on the galvanometer as θ in the observation table.
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Without altering the resistance (R), close key k2 to make the shunt resistance box (S) parallel to
+                        the galvanometer (G).
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Adjust the variable resistance (S) until the galvanometer shows a deflection of exactly θ/2, half of
+                        your initial recorded deflection. Record the half deflection as θ/2 in the observation table.
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Choose a new resistance (R) and repeat the experiment five times
+                    </h4>
+                </li>
+
+            </ol>
 		</div>
 
-        <div class="close-button-container stepsNext ">
-            <button class="close-button-steps">Next</button>
+        <div class="newNextButtonDiv close-button-container stepsNext ">
+            <button class="next-button close-button-steps">Next</button>
         </div>
     `
     }
     else {
         steps.innerHTML = `
-    <h3 class="roboto-bold header">
+    <h3 class="roboto-bold">
 			Experiment Procedure
 		</h3>
 		<div class="scrollableSteps">
-			<h4 class="roboto-bold">
-				1. Choose a very large resistance value for the high-resistance box (R) so that the electricity goes through the galvanometer is small to start with.
-			</h4>
-			<h4 class="roboto-bold">
-				2. Close key k1 to close the circuit (R, G, E, k1).
-			</h4>
-			<h4 class="roboto-bold">
-				3. Adjust the R value to allow the maximum deflection on the galvanometer.
-			</h4>
-			<h4 class="roboto-bold">
-				4. Observe and record the maximum deflection on the galvanometer as θ in the observation table.
-			</h4>
-			<h4 class="roboto-bold">
-				5. Without altering the resistance (R), close key k2 to make the shunt resistance box (S) parallel to the galvanometer (G).
-			</h4>
-			<h4 class="roboto-bold">
-				6. Adjust the variable resistance (S) until the galvanometer shows a deflection of exactly θ/2, half of your initial recorded deflection. Record the half deflection as θ/2 in the observation table.
-			</h4>
-			<h4 class="roboto-bold">
-				7. Choose a new resistance (R) and repeat the experiment five times
-			</h4>
+            <ol>
+                <li>
+                    <h4 class="roboto-bold">
+                        Choose a very large resistance value for the high-resistance box (R) so that the current goes
+                        through the galvanometer is small to start with.
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Close key k1 to close the circuit (R, G, E, k1).
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Adjust the R value to allow the maximum deflection on the galvanometer.
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Observe and record the maximum deflection on the galvanometer as θ in the observation table.
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Without altering the resistance (R), close key k2 to make the shunt resistance box (S) parallel to
+                        the galvanometer (G).
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Adjust the variable resistance (S) until the galvanometer shows a deflection of exactly θ/2, half of
+                        your initial recorded deflection. Record the half deflection as θ/2 in the observation table.
+                    </h4>
+                </li>
+                <li>
+                    <h4 class="roboto-bold">
+                        Choose a new resistance (R) and repeat the experiment five times
+                    </h4>
+                </li>
+
+            </ol>
 		</div>
 
-        <div class="close-button-container closeSteps">
-            <button class="close-button-steps">Close</button>
+        <div class="newNextButtonDiv close-button-container closeSteps">
+            <button class="next-button close-button-steps">Close</button>
         </div>
     `
     }
@@ -674,6 +720,7 @@ function takeReadings() {
     document.getElementById('procedureBox').style.display = "none"
     loadTableData
     disableThreeJSInteraction();
+    validateInputFields();
 }
 
 function saveTableData() {
@@ -689,7 +736,29 @@ function saveTableData() {
         });
     });
     localStorage.setItem('tableData', JSON.stringify(tableData));
+    validateInputFields();
 }
+function validateInputFields() {
+    const submitButton = document.getElementById('submitObservations');
+    const row1Inputs = document.querySelectorAll('tbody tr:nth-child(1) input');
+    const row2Inputs = document.querySelectorAll('tbody tr:nth-child(2) input');
+    let allFilled = true;
+
+    row1Inputs.forEach(input => {
+        if (input.value === '') {
+            allFilled = false;
+        }
+    });
+
+    row2Inputs.forEach(input => {
+        if (input.value === '') {
+            allFilled = false;
+        }
+    });
+
+    submitButton.disabled = !allFilled;
+}
+
 
 // Function to load table data from localStorage
 function loadTableData() {
@@ -772,14 +841,19 @@ document.getElementById('closeButtonHRB').addEventListener('click', () => {
     enableThreeJSInteraction();
 });
 
+const modalOverlayHRB = document.getElementById('modal-overlay-hrb')
+const safetyElement = document.getElementById('safety');
+export var visibility = false
 document.getElementById('submitHRBResistance').addEventListener('click', function () {
     disableThreeJSInteraction();
     updateDeflection()
     let v = 2
     let i;
     R = sumHRB + 100;
+    // R = sumHRB + 60
     i = v / R;
     const k = 3.175e-5
+    // const k = 6.28931e-5
     let theta;
     // k * theta = E/(R+G)
     // We are supposed to know G
@@ -792,44 +866,27 @@ document.getElementById('submitHRBResistance').addEventListener('click', functio
         if (directionOfDeflection == "right") {
             if (theta > 30) {
                 document.getElementById('deflectionValue').textContent = theta;
-                document.getElementById("safety").style.display = "block";
-
-                // Add event listener to hide the safety message when clicking outside of it
-                function hideSafetyMessage(event) {
-                    console.log("Hiding safety box HRB")
-                    var safetyElement = document.getElementById("safety");
-                    if (!safetyElement.contains(event.target)) {
-                        safetyElement.style.display = "none";
-                        document.removeEventListener('click', hideSafetyMessage);
-                    }
-                }
-
-                // Add event listener to hide the safety message when clicking outside of it
+                const safety = document.getElementById("safety");
+                safety.style.display = "block";
+                safety.classList.add('shake-animation');
                 setTimeout(function () {
-                    document.addEventListener('click', hideSafetyMessage);
-                }, 0);
-
+                    safety.classList.remove('shake-animation');
+                    safety.style.display = "none";
+                }, 5000);
             }
             else if (theta < 5) {
                 document.getElementById('deflectionValue').textContent = theta;
-                document.getElementById("safetyLow").style.display = "block";
-
-                // Add event listener to hide the safety message when clicking outside of it
-                function hideSafetyMessage(event) {
-                    var safetyElement = document.getElementById("safetyLow");
-                    if (!safetyElement.contains(event.target)) {
-                        safetyElement.style.display = "none";
-                        document.removeEventListener('click', hideSafetyMessage);
-                    }
-                }
-
-                // Add event listener to hide the safety message when clicking outside of it
+                const safety = document.getElementById("safety");
+                safety.style.display = "block";
+                safety.classList.add('shake-animation');
                 setTimeout(function () {
-                    document.addEventListener('click', hideSafetyMessage);
-                }, 0);
+                    safety.classList.remove('shake-animation');
+                    safety.style.display = "none";
+                }, 5000);
             }
             else {
                 document.getElementById('deflectionValue').textContent = theta;
+
             }
 
             // updateNeedle(theta)
@@ -837,42 +894,27 @@ document.getElementById('submitHRBResistance').addEventListener('click', functio
         else if (directionOfDeflection == "left") {
             if (theta > 30) {
                 document.getElementById('deflectionValue').textContent = -theta;
-                document.getElementById("safety").style.display = "block";
-
-                // Add event listener to hide the safety message when clicking outside of it
-                function hideSafetyMessage(event) {
-                    var safetyElement = document.getElementById("safety");
-                    if (!safetyElement.contains(event.target)) {
-                        safetyElement.style.display = "none";
-                        document.removeEventListener('click', hideSafetyMessage);
-                    }
-                }
-
-                // Add event listener to hide the safety message when clicking outside of it
+                const safety = document.getElementById("safety");
+                safety.style.display = "block";
+                safety.classList.add('shake-animation');
                 setTimeout(function () {
-                    document.addEventListener('click', hideSafetyMessage);
-                }, 0);
+                    safety.classList.remove('shake-animation');
+                    safety.style.display = "none";
+                }, 5000);
             }
             else if (theta < 5) {
-                document.getElementById('deflectionValue').textContent = theta;
-                document.getElementById("safetyLow").style.display = "block";
-
-                // Add event listener to hide the safety message when clicking outside of it
-                function hideSafetyMessage(event) {
-                    var safetyElement = document.getElementById("safetyLow");
-                    if (!safetyElement.contains(event.target)) {
-                        safetyElement.style.display = "none";
-                        document.removeEventListener('click', hideSafetyMessage);
-                    }
-                }
-
-                // Add event listener to hide the safety message when clicking outside of it
+                document.getElementById('deflectionValue').textContent = -theta;
+                const safety = document.getElementById("safety");
+                safety.style.display = "block";
+                safety.classList.add('shake-animation');
                 setTimeout(function () {
-                    document.addEventListener('click', hideSafetyMessage);
-                }, 0);
+                    safety.classList.remove('shake-animation');
+                    safety.style.display = "none";
+                }, 5000);
             }
             else {
                 document.getElementById('deflectionValue').textContent = -theta;
+
             }
             // updateNeedle(-theta)
         }
@@ -883,7 +925,20 @@ document.getElementById('submitHRBResistance').addEventListener('click', functio
     }
 
 })
+export function hideSafetyMessages(event) {
+    const safetyElement = document.getElementById("safety");
+    const safetyLowElement = document.getElementById("safetyLow");
+    const hRBModal = document.querySelector('.hRBModal');
 
+    // Check if the click is outside the safety message elements and the modal content
+    if (!hRBModal.contains(event.target) && safetyElement.style.display === "block") {
+        safetyElement.style.display = "none";
+    }
+
+    if (!hRBModal.contains(event.target) && safetyLowElement.style.display === "block") {
+        safetyLowElement.style.display = "none";
+    }
+}
 // Shunt Resistance
 let sumShunt = 0
 let deflectionShunt = 0
@@ -914,10 +969,13 @@ document.getElementById('submitLRBResistance').addEventListener('click', functio
     updateDeflectionShunt()
     let v = 2
     let i;
-    let rDash = R + (100 * sumShunt) / (100 + sumShunt);
+
+    let rDash = (R - 100) + (100 * sumShunt) / (100 + sumShunt);
     console.log("R value", R)
     console.log("R Dash is", rDash)
-    i = v / rDash;
+    console.log("Sum shunt - ", sumShunt)
+    i = ((v / rDash) * sumShunt) / (100 + sumShunt);;;
+    // const k = 6.28931e-5
     const k = 3.175e-5
     let theta;
     // k * theta = E/(R+G)
@@ -930,40 +988,23 @@ document.getElementById('submitLRBResistance').addEventListener('click', functio
         if (directionOfDeflection == "right") {
             if (theta > 30) {
                 document.getElementById('deflectionValueLRB').textContent = theta;
-                document.getElementById("safetyLRB").style.display = "block";
-
-                // Add event listener to hide the safety message when clicking outside of it
-                function hideSafetyMessage(event) {
-                    console.log("Hiding safety message LRB")
-                    var safetyElement = document.getElementById("safetyLRB");
-                    if (!safetyElement.contains(event.target)) {
-                        safetyElement.style.display = "none";
-                        document.removeEventListener('click', hideSafetyMessage);
-                    }
-                }
-
-                // Add event listener to hide the safety message when clicking outside of it
+                const safety = document.getElementById("safetyLRB");
+                safety.style.display = "block";
+                safety.classList.add('shake-animation');
                 setTimeout(function () {
-                    document.addEventListener('click', hideSafetyMessage);
-                }, 0);
+                    safety.classList.remove('shake-animation');
+                    safety.style.display = "none";
+                }, 5000);
             }
             else if (theta < 5) {
                 document.getElementById('deflectionValueLRB').textContent = theta;
-                document.getElementById("safetyLow").style.display = "block";
-
-                // Add event listener to hide the safety message when clicking outside of it
-                function hideSafetyMessage(event) {
-                    var safetyElement = document.getElementById("safetyLow");
-                    if (!safetyElement.contains(event.target)) {
-                        safetyElement.style.display = "none";
-                        document.removeEventListener('click', hideSafetyMessage);
-                    }
-                }
-
-                // Add event listener to hide the safety message when clicking outside of it
+                const safety = document.getElementById("safetyLowLRB");
+                safety.style.display = "block";
+                safety.classList.add('shake-animation');
                 setTimeout(function () {
-                    document.addEventListener('click', hideSafetyMessage);
-                }, 0);
+                    safety.classList.remove('shake-animation');
+                    safety.style.display = "none";
+                }, 5000);
             }
             else {
                 document.getElementById('deflectionValueLRB').textContent = theta;
@@ -973,39 +1014,23 @@ document.getElementById('submitLRBResistance').addEventListener('click', functio
         else if (directionOfDeflection == "left") {
             if (theta > 30) {
                 document.getElementById('deflectionValueLRB').textContent = -theta;
-                document.getElementById("safetyLRB").style.display = "block";
-
-                // Add event listener to hide the safety message when clicking outside of it
-                function hideSafetyMessage(event) {
-                    var safetyElement = document.getElementById("safetyLRB");
-                    if (!safetyElement.contains(event.target)) {
-                        safetyElement.style.display = "none";
-                        document.removeEventListener('click', hideSafetyMessage);
-                    }
-                }
-
-                // Add event listener to hide the safety message when clicking outside of it
+                const safety = document.getElementById("safetyLRB");
+                safety.style.display = "block";
+                safety.classList.add('shake-animation');
                 setTimeout(function () {
-                    document.addEventListener('click', hideSafetyMessage);
-                }, 0);
+                    safety.classList.remove('shake-animation');
+                    safety.style.display = "none";
+                }, 5000);
             }
             else if (theta < 5) {
                 document.getElementById('deflectionValueLRB').textContent = -theta;
-                document.getElementById("safetyLow").style.display = "block";
-
-                // Add event listener to hide the safety message when clicking outside of it
-                function hideSafetyMessage(event) {
-                    var safetyElement = document.getElementById("safetyLow");
-                    if (!safetyElement.contains(event.target)) {
-                        safetyElement.style.display = "none";
-                        document.removeEventListener('click', hideSafetyMessage);
-                    }
-                }
-
-                // Add event listener to hide the safety message when clicking outside of it
+                const safety = document.getElementById("safetyLowLRB");
+                safety.style.display = "block";
+                safety.classList.add('shake-animation');
                 setTimeout(function () {
-                    document.addEventListener('click', hideSafetyMessage);
-                }, 0);
+                    safety.classList.remove('shake-animation');
+                    safety.style.display = "none";
+                }, 5000);
             }
             else {
                 document.getElementById('deflectionValueLRB').textContent = -theta;

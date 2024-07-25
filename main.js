@@ -2,10 +2,12 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { DragControls } from 'three/examples/jsm/controls/DragControls.js';
 // import { floor } from 'three/examples/jsm/nodes/Nodes.js';
-import { correctConnections } from './instruction.js';
+import { correctConnections, visibility } from './instruction.js';
 import { invalidConnectionFunction } from './instruction.js';
 import { enableThreeJSInteraction } from './instruction.js';
 import { disableThreeJSInteraction } from './instruction.js';
+import { hideSafetyMessages } from './instruction.js';
+// import { visibility } from './instruction.js';
 
 let needle;
 let needlePivot;
@@ -215,7 +217,7 @@ export { needlePivot };
 
 // High RB
 loader.load(
-    '/resistance_box/High-RB.gltf',
+    '/resistance_box/HRB.gltf',
     function (gltf) {
         highRB = gltf.scene;
         highRB.name = "highRB"
@@ -336,7 +338,7 @@ loader.load(
 
 // Low RB
 loader.load(
-    '/resistance_box/Shunt-RB.gltf',
+    '/resistance_box/SRB.gltf',
     function (gltf) {
         lowRB = gltf.scene;
 
@@ -791,6 +793,72 @@ export let key2Open = true
 export let key1Open = true
 let noDraw = false
 
+const key1Div = document.createElement('div');
+key1Div.className = 'key-status';
+key1Div.style.position = 'absolute';
+key1Div.style.display = 'none'; // Initially hidden
+key1Div.style.color = "#047DB7"
+document.body.appendChild(key1Div);
+
+const key2Div = document.createElement('div');
+key2Div.className = 'key-status';
+key2Div.style.position = 'absolute';
+key2Div.style.display = 'none'; // Initially hidden
+key2Div.style.color = "#047DB7"
+document.body.appendChild(key2Div);
+
+function findObjectByName(name) {
+    let foundObject = null;
+    scene.traverse((object) => {
+        if (object.userData.customName === name) {
+            foundObject = object;
+        }
+    });
+    return foundObject;
+}
+
+function updateKey2DivPosition(position) {
+    const vector = position.clone();
+    vector.project(camera);
+
+    const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
+    const y = (vector.y * -0.5 + 0.5) * window.innerHeight;
+
+    const offsetX = -260; // Adjust this value to move the div left
+    const offsetY = -38; // Adjust this value to move the div up/down if needed
+
+    key2Div.style.left = `${x - offsetX}px`;
+    key2Div.style.top = `${y + offsetY}px`;
+    key2Div.style.display = 'block';
+}
+
+
+function updateKey1DivPosition(position) {
+    const vector = position.clone();
+    vector.project(camera);
+
+    const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
+    const y = (vector.y * -0.5 + 0.5) * window.innerHeight;
+
+    const offsetX = -150; // Adjust this value to move the div left
+    const offsetY = 112; // Adjust this value to move the div up/down if needed
+
+    key1Div.style.left = `${x - offsetX}px`;
+    key1Div.style.top = `${y + offsetY}px`;
+    key1Div.style.display = 'block';
+}
+function showKey1Status(status, position) {
+    key1Div.innerHTML = `${status}`;
+    updateKey1DivPosition(position);
+}
+function showKey2Status(status, position) {
+    key2Div.innerHTML = `${status}`;
+    updateKey2DivPosition(position);
+}
+function hideKey1Status() {
+    key1Div.style.display = 'none';
+}
+
 function createCircleDiv(position) {
     const vector = position.clone();
     vector.project(camera);
@@ -924,36 +992,48 @@ function onMouseClick(event) {
                     return;
                 }
                 else if (object.userData.customName === 'key2Model' || object.userData.customName === 'key2Group') {
+                    var position = intersects[0].point;
+                    console.log("I tapped here -  ", position)
                     if (key2Open) {
                         console.log('Clicked on the key2 model, Y position decreasedby 1');
                         if (object.userData.customName === 'key2Group') {
                             console.log("hello from clicking key2 group")
                             let key2Model = null;
+                            let key2Group = null
                             scene.traverse((obj) => {
                                 if (obj.userData.customName === 'key2Model') {
                                     key2Model = obj;
                                 }
                             });
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key2Group') {
+                                    key2Group = obj;
+                                }
+                            });
 
                             if (key2Model) {
                                 console.log("I got the model");
+                                console.log("Key 2 position ", key2Model.position)
+                                position = key2Group.position
                                 key2Model.position.y -= 0.5;
                                 console.log('Key 2 model moved downwards by 0.5');
                             } else {
                                 console.log("Key 2 model not found");
                             }
                         } else {
+                            let key2Group = null
+                            console.log("I got the model");
+                            console.log("Key 2 position ", object.position)
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key2Group') {
+                                    key2Group = obj;
+                                }
+                            });
+                            position = key2Group.position
                             object.position.y -= 0.5;
                         }
 
-                        const modalOverlayKey = document.getElementById('modal-overlay-key');
-                        modalOverlayKey.style.display = "block"
-                        modalOverlayKey.innerHTML = `
-                        <div class="keyStatus">
-                        <h3>Key 2 is Closed</h3>
-			            <button class="continueButtonKey" id="keyStatusContinue">Continue</button>
-		                </div>
-                        `
+                        showKey2Status('Key 2 Closed', position);
                         key2Open = false
                         return;
 
@@ -963,6 +1043,7 @@ function onMouseClick(event) {
                         if (object.userData.customName === 'key2Group') {
                             console.log("hello from clicking key2 group")
                             let key2Model = null;
+                            let key2Group = object
                             scene.traverse((obj) => {
                                 if (obj.userData.customName === 'key2Model') {
                                     key2Model = obj;
@@ -976,52 +1057,67 @@ function onMouseClick(event) {
                             } else {
                                 console.log("Key 2 model not found");
                             }
+                            position = key2Group.position
                         } else {
+                            let key2Group = null
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key2Group') {
+                                    key2Group = obj;
+                                }
+                            });
+                            position = key2Group.position
                             object.position.y += 0.5;
                         }
                         key2Open = true
-                        const modalOverlayKey = document.getElementById('modal-overlay-key');
-                        modalOverlayKey.style.display = "block"
-                        modalOverlayKey.innerHTML = `
-                        <div class="keyStatus">
-                        <h3>Key 2 is Open</h3>
-			            <button class="continueButtonKey" id="keyStatusContinue">Continue</button>
-		                </div>
-                        `
+                        showKey2Status('Key 2 Open', position);
                         return;
                     }
 
                 }
                 else if (object.userData.customName === 'key1Model' || object.userData.customName === 'key1Group') {
+                    var position = intersects[0].point;
+                    console.log("I tapped here -  ", position)
                     if (key1Open) {
                         console.log('Clicked on the key1 model, Y position decreasedby 1');
                         if (object.userData.customName === 'key1Group') {
                             console.log("hello from clicking key1 group")
                             let key1Model = null;
+                            let key1Group = null
                             scene.traverse((obj) => {
                                 if (obj.userData.customName === 'key1Model') {
                                     key1Model = obj;
                                 }
                             });
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key1Group') {
+                                    key1Group = obj;
+                                }
+                            });
+
 
                             if (key1Model) {
                                 console.log("I got the model");
+                                console.log("Key 1 position ", key1Model.position)
+                                position = key1Group.position
                                 key1Model.position.y -= 0.5;
                                 console.log('Key 1 model moved downwards by 0.5');
                             } else {
                                 console.log("Key 1 model not found");
                             }
                         } else {
+                            let key1Group = null
+                            console.log("I got the model");
+                            console.log("Key 1 position ", object.position)
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key1Group') {
+                                    key1Group = obj;
+                                }
+                            });
+
+                            position = key1Group.position
                             object.position.y -= 0.5;
                         }
-                        const modalOverlayKey = document.getElementById('modal-overlay-key');
-                        modalOverlayKey.style.display = "block"
-                        modalOverlayKey.innerHTML = `
-                        <div class="keyStatus">
-                        <h3>Key 1 is Closed</h3>
-			            <button class="continueButtonKey" id="keyStatusContinue">Continue</button>
-		                </div>
-                        `
+                        showKey1Status('Key 1 Closed', position);
                         key1Open = false
                         return;
 
@@ -1031,6 +1127,7 @@ function onMouseClick(event) {
                         if (object.userData.customName === 'key1Group') {
                             console.log("hello from clicking key1 group")
                             let key1Model = null;
+                            let key1Group = object;
                             scene.traverse((obj) => {
                                 if (obj.userData.customName === 'key1Model') {
                                     key1Model = obj;
@@ -1039,23 +1136,25 @@ function onMouseClick(event) {
 
                             if (key1Model) {
                                 console.log("I got the model");
+
                                 key1Model.position.y += 0.5;
                                 console.log('Key 1 model moved downwards by 0.5');
                             } else {
                                 console.log("Key 1 model not found");
                             }
+                            position = key1Group.position
                         } else {
+                            let key1Group = null
+                            scene.traverse((obj) => {
+                                if (obj.userData.customName === 'key1Group') {
+                                    key1Group = obj;
+                                }
+                            });
+                            position = key1Group.position
                             object.position.y += 0.5;
+
                         }
-                        const modalOverlayKey = document.getElementById('modal-overlay-key');
-                        modalOverlayKey.style.display = "block"
-                        modalOverlayKey.innerHTML = `
-                        <div class="keyStatus">
-                        <h3>Key 1 is Open</h3>
-			            <button class="continueButtonKey" id="keyStatusContinue">Continue</button>
-		                </div>
-                        
-                        `
+                        showKey1Status('Key 1 Open', position);
                         key1Open = true
                         return;
                     }
@@ -1445,10 +1544,42 @@ function animate() {
             scene.add(line);
         }
     });
+
     renderer.render(scene, camera);
 }
 
 animate();
+
+const modalOverlayHRB = document.getElementById('modal-overlay-hrb')
+const modalOverlayLRB = document.getElementById('modal-overlay-lrb')
+
+modalOverlayHRB.addEventListener('click', function (event) {
+    console.log("main.js recorded click")
+
+    event.stopPropagation();
+    event.preventDefault();
+});
+
+modalOverlayLRB.addEventListener('click', function (event) {
+    console.log("main.js recorded click")
+
+    event.stopPropagation();
+    event.preventDefault();
+})
+const hRBModal = document.querySelector('.hRBModal');
+const lRBModal = document.querySelector('.lRBModal')
+hRBModal.addEventListener('click', function (event) {
+    console.log("click in hrb");
+    event.stopPropagation(); // Allow checkboxes and other elements to be interacted with
+});
+lRBModal.addEventListener('click', function (event) {
+    console.log("click in lrb");
+    event.stopPropagation();
+})
+document.addEventListener('click', function (event) {
+    console.log("Called ")
+    hideSafetyMessages(event);
+});
 
 window.addEventListener('resize', function () {
     camera.aspect = window.innerWidth / window.innerHeight;

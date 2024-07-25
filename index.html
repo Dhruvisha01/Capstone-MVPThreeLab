@@ -208,7 +208,7 @@
 		<h3 class="roboto-bold">Now let’s arrange all the equipment. You can move them freely. <br><br>
 
 			Once done, tap on the “Finalize Position” button on the top right corner.</h3>
-		<div class="next nextButtonDiv  next-button-fix">
+		<div class="newNextButtonDiv">
 			<button class="next-button" id="next-button-fix">Next</button>
 		</div>
 
@@ -247,7 +247,7 @@
 			<div class="tableHeader">
 				<h3 class="roboto-bold">Observation Table</h3>
 				<div class="buttons">
-					<button class="submitButton" id="submitObservations">Complete Lab</button>
+					<button class="submitButton roboto-regular" id="submitObservations">Complete Lab</button>
 					<button class="closeButton" id="closeButtonOB">
 						<img src="/images/close.svg" alt="Close Icon">
 					</button>
@@ -458,7 +458,7 @@
 					</p>
 				</div>
 			</div>
-			<div class="safety" id="safetyLow">
+			<div class="safety" id="safetyLowLRB">
 				<div class="safetyContent">
 					<img src="/images/safety.svg" alt="">
 					<p class="roboto-regular">
@@ -510,30 +510,33 @@
 
 	<div class="modal-overlay-info" id="modal-overlay-info">
 		<div class="information">
+			<button class="closeButton closeInfo" id="closeInfo">
+				<img src="/images/close.svg" alt="Close Icon">
+			</button>
 			<div class="tableHeader tableHeaderHRB">
 				<h3 class="roboto-bold headerTitle">Lab Information</h3>
-				<button class="closeButton closeInfo" id="closeInfo">
-					<img src="/images/close.svg" alt="Close Icon">
-				</button>
 			</div>
-			<p class="roboto-regular">
-				1. Place all lab equipment in the desired positions.
-			</p>
-			<p class="roboto-regular">
-				2. Finalize the positions of the equipment.
-			</p>
-			<p class="roboto-regular">
-				3. Connect the wires by dragging from one blue dot to another.
-			</p>
-			<p class="roboto-regular">
-				4. Submit the wire connections.
-			</p>
-			<p class="roboto-regular">
-				5. Close the keys and adjust the resistance values.
-			</p>
-			<p class="roboto-regular">
-				6. Enter the readings into the observation table.
-			</p>
+			<div class="infoSteps">
+				<p class="roboto-regular">
+					1. Place all lab equipment in the desired positions.
+				</p>
+				<p class="roboto-regular">
+					2. Finalize the positions of the equipment.
+				</p>
+				<p class="roboto-regular">
+					3. Connect the wires by dragging from one blue dot to another.
+				</p>
+				<p class="roboto-regular">
+					4. Submit the wire connections.
+				</p>
+				<p class="roboto-regular">
+					5. Close the keys and adjust the resistance values.
+				</p>
+				<p class="roboto-regular">
+					6. Enter the readings into the observation table.
+				</p>
+			</div>
+
 		</div>
 
 	</div>
@@ -550,6 +553,7 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 	<script src="https://threejs.org/examples/js/controls/DragControls.js"></script>
+	
 
 </body>
 
