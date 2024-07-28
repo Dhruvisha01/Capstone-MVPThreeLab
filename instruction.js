@@ -373,15 +373,6 @@ document.getElementById('next-button-fix').addEventListener('click', function ()
     hideDiv()
 })
 
-// document.getElementById('lockButton').addEventListener('click', function () {
-//     if (skipTutorial) {
-//         tutorial = false
-//     }
-//     else {
-//         tutorial = true
-//     }
-// })
-
 document.getElementById('connectWiresDiv1').addEventListener('click', function () {
     tutorial = true
     connectWiresStep2()
@@ -400,10 +391,6 @@ function connectWiresStep2() {
     highlight.style.left = "80%"
 }
 
-// document.getElementById('connectWiresDiv2').addEventListener('click', function () {
-//     console.log("Connect wires div clicked")
-//     connectWiresStep3()
-// })
 
 function connectWiresStep3() {
     const connectWiresDiv = document.getElementById('connectWiresDiv')

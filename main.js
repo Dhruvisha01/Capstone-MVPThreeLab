@@ -30,10 +30,7 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(5, 5, 5).normalize();
 scene.add(directionalLight);
 const axesHelper = new THREE.AxesHelper(5);
-// red blue green
-// x, y, z
-// axesHelper.setColors(0xff0000, 0x0000ff, 0x00ff00)
-// scene.add(axesHelper);
+
 // Table 
 let floorTexture = new THREE.TextureLoader().load('images/Table2.jpg');
 floorTexture.wrapS = THREE.RepeatWrapping;// wrapS is horizontal direction
@@ -54,21 +51,6 @@ floorPlane.position.y = -Math.PI; //This is 180 degrees
 scene.add(floorPlane);
 
 // Terminals 
-function placeTerminalButton(position, parentGroup, name) {
-    const geometry = new THREE.SphereGeometry(0.1, 32, 32);
-    const material = new THREE.MeshBasicMaterial({
-        color: 0x0000ff,
-        transparent: true,
-        opacity: 0.0,
-        depthWrite: true
-    });
-    const button = new THREE.Mesh(geometry, material);
-    button.name = name;
-    button.position.copy(position);
-    parentGroup.add(button);
-    console.log("Added button:", name, button.position);
-    return button;
-}
 
 function createPlusButton() {
     const buttonGeometry = new THREE.PlaneGeometry(0.1, 0.1);
@@ -82,15 +64,6 @@ function createLargerTransparentArea(button, size) {
     const largerArea = new THREE.Mesh(geometry, material);
     largerArea.position.copy(button.position);
     return largerArea;
-}
-
-function createCircle(position) {
-    const geometry = new THREE.CircleGeometry(0.1, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-    const circle = new THREE.Mesh(geometry, material);
-    circle.position.copy(position);
-    circle.position.z += 0.1;  // Slightly offset to avoid z-fighting
-    return circle;
 }
 
 // GLTF Models
@@ -688,18 +661,7 @@ function getIntersects(event, objects) {
     return raycaster.intersectObjects(objects);
 }
 
-function getMousePosition(event) {
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-    raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObject(scene, true);
-    return intersects.length > 0 ? intersects[0].point : null;
-}
-
 // Drawing the line
-const textureLoader = new THREE.TextureLoader();
-const texture = textureLoader.load('images/cablePic3.jpg'); // Replace with the actual path to your texture
 
 function createLine(startPoint, endPoint) {
     const material = new THREE.MeshBasicMaterial({ color: 0x7f7f7f });
@@ -724,28 +686,8 @@ function createLine(startPoint, endPoint) {
     return cylinder;
 }
 
-function updateLine(line, startPoint, endPoint) {
-    const direction = new THREE.Vector3().subVectors(endPoint, startPoint);
-    const length = direction.length();
-
-    // Dispose of old geometry
-    line.geometry.dispose();
-    line.geometry = new THREE.CylinderGeometry(0.05, 0.05, length, 32, 1, false);
-
-    // Set orientation
-    const orientation = new THREE.Matrix4();
-    orientation.lookAt(startPoint, endPoint, new THREE.Object3D().up);
-    orientation.multiply(new THREE.Matrix4().makeRotationX(Math.PI / 2));
-    line.setRotationFromMatrix(orientation);
-
-    // Set position
-    const midPoint = new THREE.Vector3().addVectors(startPoint, endPoint).multiplyScalar(0.5);
-    line.position.copy(midPoint);
-}
-
 let startCircle = null;
 let endCircle = null;
-
 
 // Deleting the lines drawn 
 var eraser = false
@@ -762,6 +704,7 @@ eraseButton.addEventListener('click', () => {
 
 
 })
+
 function removeDuplicatesAndCleanScene(drawnLines, scene) {
     // Use a Set to keep track of unique elements
     const uniqueLines = new Set();
@@ -807,16 +750,6 @@ key2Div.style.display = 'none'; // Initially hidden
 key2Div.style.color = "#047DB7"
 document.body.appendChild(key2Div);
 
-function findObjectByName(name) {
-    let foundObject = null;
-    scene.traverse((object) => {
-        if (object.userData.customName === name) {
-            foundObject = object;
-        }
-    });
-    return foundObject;
-}
-
 function updateKey2DivPosition(position) {
     const vector = position.clone();
     vector.project(camera);
@@ -854,9 +787,6 @@ function showKey1Status(status, position) {
 function showKey2Status(status, position) {
     key2Div.innerHTML = `${status}`;
     updateKey2DivPosition(position);
-}
-function hideKey1Status() {
-    key1Div.style.display = 'none';
 }
 
 function createCircleDiv(position) {
