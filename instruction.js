@@ -1,30 +1,35 @@
 // import { Connect } from "twilio/lib/twiml/VoiceResponse";
 var tutorial = true
 var skipTutorial = false
+
+// Import necessary functions and modules from other files
 import { key1Open, key2Open } from './main.js';
 import { needle } from './main.js';
 import { update } from "three/examples/jsm/libs/tween.module.js";
 import { needlePivot } from './main.js';
 
+// Function to show the overlay and introduction div
 function showDiv() {
     document.getElementById('overlay').style.display = 'block';
     document.getElementById('labIntro').style.display = 'block';
 }
 
-// const next = document.getElementById("next")
-// Function to hide the div and overlay
+// Function to hide the overlay and introduction div
 function hideDiv() {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('labIntro').style.display = 'none';
 }
+
 // Ensure the DOM is fully loaded before running the script
 document.addEventListener('DOMContentLoaded', () => {
-    // Show the div and overlay when the page loads (for demonstration)
+    // Show the div and overlay when the page loads 
     showDiv();
+
+    // Add event listeners to various elements
     document.querySelector('#next').addEventListener('click', GalvIntro);
     document.getElementById('submitConnections').style.display = "none"
-    // document.querySelector('.prevLab').addEventListener('click', LabIntro);
     document.body.addEventListener('click', function (event) {
+        // Event listeners for different buttons and steps
         if (event.target.closest('#next')) {
             GalvIntro();
         }
@@ -109,10 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     });
-    // Example: Hide the div and overlay after 5 seconds (for demonstration)
-    // setTimeout(hideDiv, 5000);
+
 });
 
+// Function to display lab introduction content
 function LabIntro() {
     const labIntroDiv = document.getElementById('labIntro');
     labIntroDiv.innerHTML = `
@@ -165,6 +170,7 @@ function LabIntro() {
     `
 }
 
+// Function to display galvanometer introduction content
 function GalvIntro() {
     const labIntroDiv = document.getElementById('labIntro');
     labIntroDiv.innerHTML = `
@@ -189,6 +195,7 @@ function GalvIntro() {
     `;
 }
 
+// Function to display battery introduction content
 function BatteryIntro() {
     const labIntroDiv = document.getElementById('labIntro');
     labIntroDiv.innerHTML = `
@@ -214,6 +221,7 @@ function BatteryIntro() {
     `;
 }
 
+// Function to display high resistance box introduction content
 function HighRBIntro() {
     const labIntroDiv = document.getElementById('labIntro');
     labIntroDiv.innerHTML = `
@@ -240,6 +248,7 @@ function HighRBIntro() {
     `;
 }
 
+// Function to display shunt resistance box introduction content
 function ShuntRBIntro() {
     const labIntroDiv = document.getElementById('labIntro');
     labIntroDiv.innerHTML = `
@@ -266,6 +275,8 @@ function ShuntRBIntro() {
 		    </div>
     `;
 }
+
+// Function to display key 1 introduction content
 function Key1Intro() {
     const labIntroDiv = document.getElementById('labIntro');
     labIntroDiv.innerHTML = `
@@ -291,6 +302,8 @@ function Key1Intro() {
 		    </div>
     `;
 }
+
+// Function to display key 2 introduction content
 function Key2Intro() {
     const labIntroDiv = document.getElementById('labIntro');
     labIntroDiv.innerHTML = `
@@ -316,6 +329,8 @@ function Key2Intro() {
 		</div>
     `;
 }
+
+// Function to display circuit diagram
 function circuitDiagram() {
     const circuitDiagramIntro = document.getElementById('circuit')
     const labIntro = document.getElementById('labIntro')
@@ -328,6 +343,7 @@ function circuitDiagram() {
     highlight.style.display = "block"
 }
 
+// Function to display circuit diagram tutorial
 function displayDiagram() {
     const circuitDiagramModal = document.getElementById('circuitDiagramModal')
     const circuitDiagramIntro = document.getElementById('circuit')
@@ -335,11 +351,11 @@ function displayDiagram() {
     const toolBox = document.getElementById('toolBox')
     const highlight = document.getElementById('highlight')
     document.getElementById('overlay').style.zIndex = "1002"
-    // toolBox.style.display = "none"
     highlight.style.display = "none"
     circuitDiagramIntro.style.display = "none"
 }
 
+// Close circuit diagram modal
 document.getElementById('closeButton').addEventListener('click', function () {
     document.getElementById('circuitDiagramModal').style.display = 'none';
     if (tutorial) {
@@ -361,6 +377,7 @@ document.getElementById('closeButton').addEventListener('click', function () {
 
 });
 
+// Event listener for the next button in the fix positions intro
 document.getElementById('next-button-fix').addEventListener('click', function () {
     const highlight = document.getElementById('highlight')
     const fixPositionIntro = document.getElementById('fixPositionIntro')
@@ -373,11 +390,13 @@ document.getElementById('next-button-fix').addEventListener('click', function ()
     hideDiv()
 })
 
+// Event listener for connecting wires tutorial
 document.getElementById('connectWiresDiv1').addEventListener('click', function () {
     tutorial = true
     connectWiresStep2()
 })
 
+// Function to display step 2 of connecting wires
 function connectWiresStep2() {
     const connectWiresDiv = document.getElementById('connectWiresDiv')
     connectWiresDiv.innerHTML = `
@@ -391,7 +410,7 @@ function connectWiresStep2() {
     highlight.style.left = "80%"
 }
 
-
+// Function to display step 3 of connecting wires
 function connectWiresStep3() {
     const connectWiresDiv = document.getElementById('connectWiresDiv')
     connectWiresDiv.innerHTML = `
@@ -405,6 +424,7 @@ function connectWiresStep3() {
     highlight.style.left = "92%"
 }
 
+// Function to start the lab
 function doLab() {
     document.getElementById('overlay').style.display = 'none';
     document.getElementById('connectWiresDiv').style.display = "none"
@@ -417,6 +437,8 @@ function doLab() {
 
 }
 var directionOfDeflection = null
+
+// Function to handle correct connections
 export function correctConnections(direction) {
     directionOfDeflection = direction
     tutorial = true
@@ -458,6 +480,7 @@ export function correctConnections(direction) {
 let currentHintIndex = 0;
 let hints = [];
 
+// Function to handle invalid connections and show hints
 export function invalidConnectionFunction(hintsArray) {
     hints = hintsArray;
     currentHintIndex = 0;
@@ -481,6 +504,7 @@ export function invalidConnectionFunction(hintsArray) {
     document.getElementById('hintButton').addEventListener('click', showHint);
 }
 
+// Function to show hint for invalid connections
 function showHint() {
     console.log("Clicked hint button");
     const hintBox = document.getElementById("hintBox");
@@ -518,6 +542,7 @@ function showHint() {
     updateHintVisibility();
 }
 
+// Function to update hint content
 function updateHintContent() {
     const hintContent = document.getElementById('hintContent');
     hintContent.innerHTML = `<h3 class="roboto-bold">Hint: ${hints[currentHintIndex]}</h3>`;
@@ -525,6 +550,7 @@ function updateHintContent() {
     hintCounter.innerText = `Hint #${currentHintIndex + 1}`;
     updateHintVisibility();
 }
+// Function to update hint navigation visibility
 function updateHintVisibility() {
     const prevHintButton = document.getElementById('prevHint');
     const nextHintButton = document.getElementById('nextHint');
@@ -532,7 +558,7 @@ function updateHintVisibility() {
     nextHintButton.style.display = currentHintIndex === hints.length - 1 ? 'none' : 'inline';
 }
 
-
+// Function to show the next hint
 function nextHint() {
     if (currentHintIndex < hints.length - 1) {
         currentHintIndex++;
@@ -540,6 +566,7 @@ function nextHint() {
     }
 }
 
+// Function to show the previous hint
 function prevHint() {
     if (currentHintIndex > 0) {
         currentHintIndex--;
@@ -547,6 +574,7 @@ function prevHint() {
     }
 }
 
+// Function to close the hint box
 function closeHint() {
     const hintBox = document.getElementById("hintBox");
     const wireFeedbackBox = document.getElementById("wireFeedbackDiv");
@@ -555,6 +583,7 @@ function closeHint() {
     console.log("close hint called")
 }
 
+// Function to show the procedure steps
 function procedure() {
     document.getElementById('overlay').style.display = 'block';
     document.getElementById('connectWiresDiv').style.display = "none"
@@ -572,6 +601,7 @@ function procedure() {
     highlight.style.left = "55%"
 }
 
+// Function to show the steps involved in the experiment
 function steps() {
     const steps = document.getElementById('steps')
     steps.style.display = "flex"
@@ -688,6 +718,8 @@ function steps() {
 
 }
 
+
+// Function to show the observation table
 function obTable() {
     const obTableIntro = document.getElementById('obTableIntro')
     obTableIntro.style.display = "block"
@@ -697,6 +729,7 @@ function obTable() {
     document.getElementById('steps').style.display = "none"
 }
 
+// Function to take readings and show the observation table
 function takeReadings() {
     const observationTable = document.getElementById('modal-overlay')
     observationTable.style.display = "flex"
@@ -710,6 +743,7 @@ function takeReadings() {
     validateInputFields();
 }
 
+// Function to save observation table data to local storage
 function saveTableData() {
     const tableData = [];
     const rows = document.querySelectorAll('#observationTableBody tr');
@@ -725,6 +759,8 @@ function saveTableData() {
     localStorage.setItem('tableData', JSON.stringify(tableData));
     validateInputFields();
 }
+
+// Function to validate input fields in the observation table
 function validateInputFields() {
     const submitButton = document.getElementById('submitObservations');
     const row1Inputs = document.querySelectorAll('tbody tr:nth-child(1) input');
@@ -747,7 +783,7 @@ function validateInputFields() {
 }
 
 
-// Function to load table data from localStorage
+// Function to load observation table data from local storage
 function loadTableData() {
     const tableData = JSON.parse(localStorage.getItem('tableData'));
     if (tableData) {
@@ -762,6 +798,7 @@ document.querySelectorAll('input').forEach(input => {
     input.addEventListener('input', saveTableData);
 });
 
+// Close the observation table modal
 document.getElementById('closeButtonOB').addEventListener('click', () => {
     document.getElementById('modal-overlay').style.display = 'none';
     document.getElementById('overlay').style.display = "none"
@@ -774,6 +811,7 @@ document.getElementById('closeButtonOB').addEventListener('click', () => {
     enableThreeJSInteraction();
 });
 
+// Function to indicate the tutorial is done
 function doneWithTutorial() {
     document.getElementById('overlay').style.display = "none"
     document.getElementById('beginScreen').style.display = "none"
@@ -781,6 +819,7 @@ function doneWithTutorial() {
 
 }
 
+// Function to disable Three.js interaction
 export function disableThreeJSInteraction() {
     const modalOverlay = document.getElementById('modal-overlay');
     modalOverlay.addEventListener('click', stopPropagation);
@@ -802,6 +841,8 @@ export function stopPropagation(event) {
 let sumHRB = 0;
 let deflection = 0
 let R = 0
+
+// Function to update deflection in high resistance box
 function updateDeflection() {
     console.log("key1Open", key1Open)
     console.log("key2Open", key2Open)
@@ -817,12 +858,12 @@ function updateDeflection() {
 
 }
 
-// Add event listeners to checkboxes
+// Add event listeners to checkboxes in high resistance box
 document.querySelectorAll('.checkbox-grid-HRB input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', updateDeflection);
 });
 
-// Close modal
+// Close high resistance box modal
 document.getElementById('closeButtonHRB').addEventListener('click', () => {
     document.getElementById('modal-overlay-hrb').style.display = 'none';
     enableThreeJSInteraction();
@@ -831,6 +872,8 @@ document.getElementById('closeButtonHRB').addEventListener('click', () => {
 const modalOverlayHRB = document.getElementById('modal-overlay-hrb')
 const safetyElement = document.getElementById('safety');
 export var visibility = false
+
+// Event listener for submitting high resistance box resistance
 document.getElementById('submitHRBResistance').addEventListener('click', function () {
     disableThreeJSInteraction();
     updateDeflection()
@@ -912,6 +955,8 @@ document.getElementById('submitHRBResistance').addEventListener('click', functio
     }
 
 })
+
+// Function to hide safety messages when clicking outside of them
 export function hideSafetyMessages(event) {
     const safetyElement = document.getElementById("safety");
     const safetyLowElement = document.getElementById("safetyLow");
@@ -930,6 +975,7 @@ export function hideSafetyMessages(event) {
 let sumShunt = 0
 let deflectionShunt = 0
 
+// Function to update deflection in shunt resistance box
 function updateDeflectionShunt() {
     console.log("key1Open", key1Open)
     console.log("key2Open", key2Open)
@@ -942,15 +988,19 @@ function updateDeflectionShunt() {
     });
 }
 
+// Add event listeners to checkboxes in shunt resistance box
 document.querySelectorAll('.checkbox-grid-LRB input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', updateDeflectionShunt);
 });
 
+// Close shunt resistance box modal
 document.getElementById('closeButtonLRB').addEventListener('click', () => {
     document.getElementById('modal-overlay-lrb').style.display = 'none';
     enableThreeJSInteraction()
 });
 
+
+// Event listener for submitting shunt resistance box resistance
 document.getElementById('submitLRBResistance').addEventListener('click', function () {
     disableThreeJSInteraction()
     updateDeflectionShunt()
@@ -1029,12 +1079,15 @@ document.getElementById('submitLRBResistance').addEventListener('click', functio
     }
 
 })
+
+// Function to calculate the rotation angle for the needle based on deflection
 function calculateRotationAngle(deflection) {
     const maxDeflection = 30;
     const maxAngle = 37; // Degrees
     return -1 * (deflection / maxDeflection) * maxAngle * (Math.PI / 180);; // Convert degrees to radians
 }
 
+// Function to update the needle deflection
 export function updateNeedle(deflection) {
     console.log("Inside Update deflection")
     if (needlePivot) {  // Ensure the needle object is loaded
@@ -1046,6 +1099,7 @@ export function updateNeedle(deflection) {
 }
 
 
+// Event listener for submitting observations
 document.getElementById('submitObservations').addEventListener('click', function () {
     console.log("hit submit observations")
 
@@ -1056,6 +1110,7 @@ document.getElementById('submitObservations').addEventListener('click', function
 
 })
 
+// Event listener for the next button on the congratulations screen
 document.getElementById('congratsNext').addEventListener('click', function () {
     const congratsScreen = document.getElementById('congratsScreen')
     congratsScreen.style.display = "None"
